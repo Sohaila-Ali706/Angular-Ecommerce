@@ -1,0 +1,76 @@
+<div class="wishlist container mt-5 mb-5">
+  <div class="head">
+    <h3>Wishlist (4)</h3>
+    <button>Move All To Bag</button>
+  </div>
+
+  <div class="wish  mb-5">
+    <ng-container *ngFor="let card of cardone">
+      <app-card-one
+        [productDta]="card"
+        [discountFlag]="true"
+        [iconone]="false"
+        [icontwo]="false"
+        [iconthree]="true"
+        [stars]="false"
+      ></app-card-one>
+    </ng-container>
+
+    <ng-container *ngFor="let card of threeCards">
+      <app-card-one
+        [productDta]="card"
+        [iconone]="false"
+        [icontwo]="false"
+        [iconthree]="true"
+        [stars]="false"
+        [delprice]="false"
+      ></app-card-one>
+    </ng-container>
+  </div>
+
+  <div class="wish">
+    <div class="spicialhesd">
+      <p>Just For You</p>
+    </div>
+    <button class="btntwo">See All</button>
+  </div>
+
+  <div class="wish">
+    <ng-container *ngFor="let card of cardone">
+      <app-card-one
+        [productDta]="card"
+        [discountFlag]="true"
+        [iconone]="false"
+        [icontwo]="true"
+      ></app-card-one>
+    </ng-container>
+
+    <ng-container *ngFor="let card of cardone">
+      <app-card-one
+        [productDta]="card"
+        [iconone]="false"
+        [icontwo]="true"
+        [delprice]="false"
+      ></app-card-one>
+    </ng-container>
+
+    <ng-container *ngFor="let card of cardone">
+      <app-card-one
+        [productDta]="card"
+        [new]="true"
+        [iconone]="false"
+        [icontwo]="true"
+        [delprice]="false"
+      ></app-card-one>
+    </ng-container>
+
+    <ng-container *ngFor="let card of cardone">
+      <app-card-one
+        [productDta]="card"
+        [iconone]="false"
+        [icontwo]="true"
+        [delprice]="false"
+      ></app-card-one>
+    </ng-container>
+  </div>
+</div>

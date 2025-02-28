@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.sidebar {
+  width: 250px;
+  background: #fff;
+  padding: 10px 0;
+  border-right: 1px solid rgb(181, 172, 172);
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sidebar li:hover {
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+.slider {
+  flex: 1;
+  margin-left: 50px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  background: #000000;
+  border-radius: 10px;
+  padding: 30px;
+  min-height: 300px;
+}
+
+.slide-text {
+  flex: 1;
+  padding: 20px;
+}
+
+.logo {
+  width: 20px;
+  margin-bottom: 10px;
+}
+
+.slide-text h3 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.slide-text h2 {
+  font-size: 45px;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.shop-now {
+  display: inline-block;
+  color: white;
+  background: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.shop-now:hover {
+  background: #333;
+}
+
+.slide-image img {
+  max-width: 380px;
+  max-height: 300px;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #bbb;
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: black;
+}
+.brand-icon {
+  font-size: 20px;
+  color: white;
+}
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .slider {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .slide {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .slide-image img {
+    max-width: 250px;
+  }
+}

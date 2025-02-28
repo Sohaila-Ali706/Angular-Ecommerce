@@ -1,0 +1,141 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  max-width: 800px;
+  height: 400px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.image-section {
+  flex: 1;
+  background: url('../../../../public/WhatsApp\ Image\ 2025-02-26\ at\ 9.26.12\ PM.jpeg') no-repeat center center/cover;
+  min-height: 250px;
+}
+
+.form-section {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #6c757d;
+}
+
+p {
+  color: #6c757d;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login-btn {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.forgot-password {
+  color: #dc3545;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+      width: 90%;
+      max-width: 700px;
+      height: auto;
+  }
+
+  .image-section {
+      min-height: 200px;
+  }
+
+  .form-section {
+      padding: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+      width: 90%;
+      max-width: 100%;
+      height: auto;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .image-section {
+      width: 100%;
+      height: 200px;
+  }
+
+  .form-section {
+      width: 100%;
+      padding: 20px;
+  }
+
+  input, .login-btn {
+      font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+      width: 95%;
+      height: auto;
+  }
+
+  .image-section {
+      height: 180px;
+  }
+
+  .form-section {
+      padding: 20px;
+  }
+
+  input, .login-btn {
+      font-size: 14px;
+      padding: 8px;
+  }
+}

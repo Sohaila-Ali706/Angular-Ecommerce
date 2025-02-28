@@ -1,0 +1,50 @@
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+button{
+    background: none;
+    border-radius: 4px ;
+    border-color:#00000080 ;
+    color: #00000033;
+    width: 223px;
+    height: 56px;
+}
+
+.btntwo{
+    width: 150px;
+}
+
+@media (max-width : 500px){
+    button{
+        width: 135px;
+    }
+}
+.wish{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.spicialhesd{
+    color:#DB4444 ;
+    font-weight: bold;
+    position: relative;
+}
+.spicialhesd p{
+    margin-left: 40px;
+}
+.spicialhesd ::before{
+    background-color:#DB4444 ;
+    width: 20px;
+    height: 40px;
+    position: absolute;
+    left: 0px;
+     
+    top: -25%;
+    content: "";
+    border-radius: 4px;
+    
+}

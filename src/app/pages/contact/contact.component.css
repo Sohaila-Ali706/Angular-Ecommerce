@@ -1,0 +1,64 @@
+.head{
+    margin-bottom: 80px;
+}
+.callUs i{
+background-color: #db4444;
+color: white;
+padding: 10px;
+border-radius: 50%;
+margin-right: 10px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ .callUs{
+    width: 340px;
+    height: 457px;
+    margin-right: 20px;
+ }
+
+ .contact-form {
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 1px 13px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+}
+.form-control {
+    background-color: #F5F5F5;
+    border: none;
+}
+.btn-submit {
+    background-color: #db4444;
+    color: white;
+    font-weight: bold;
+    width: 215px;
+    height: 56px;
+}
+.contact-form{
+    width: 800px;
+    height: 457px;
+}
+input{
+    padding: 10px;
+}
+textarea{
+    resize: none;
+    overflow: hidden;
+}
+@media (max-width : 500px){
+    textarea{
+        height: 120px;
+    }
+    input{
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .btn-submit {
+        width: 170px;
+        height: 40px;
+    }
+
+}

@@ -1,0 +1,32 @@
+.card{
+    width: 170px;
+    height: 145px;
+    margin-bottom: 20px;
+    
+}
+.icon{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.card:hover {
+    background-color: #ff6b6b;
+    color: white;
+}
+@media (max-width : 750px){
+    .card{
+        left: 20%;
+    }
+}
+@media (max-width : 550px){
+    .card{
+        left: 10%;
+    }
+}
+@media (max-width : 455px){
+    .card{
+        left: 25%;
+    }
+}

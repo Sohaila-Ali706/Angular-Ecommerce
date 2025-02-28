@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="sidebar">
+    <ul>
+      <li *ngFor="let category of categories; let i = index">
+        {{ category.name }}
+        <span *ngIf="i < 2">&gt;</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slider">
+    <div class="slide">
+      <div class="slide-text">
+        <h3>
+          {{ slides[currentSlideIndex].title }}
+        </h3>
+        <h2>{{ slides[currentSlideIndex].description }}</h2>
+        <a [href]="slides[currentSlideIndex].link" class="shop-now">Shop Now →</a>
+      </div>
+      <div class="slide-image">
+        <img [src]="slides[currentSlideIndex].image" alt="Product Image">
+      </div>
+    </div>
+    <div class="slider-dots">
+      <span
+        *ngFor="let slide of slides; let i = index"
+        class="dot"
+        [class.active]="i === currentSlideIndex"
+        (click)="goToSlide(i)">
+      </span>
+    </div>
+  </div>
+</div>

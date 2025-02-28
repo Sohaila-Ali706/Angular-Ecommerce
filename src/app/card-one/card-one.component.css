@@ -1,0 +1,70 @@
+
+.number{
+    margin-top: -5px;
+}
+.image{
+    background-color:#F5F5F5 ;
+    height: 250px;
+}
+.parent{
+    position: relative;
+}
+
+.icons{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+.iconone , .icontwo ,.iconthree{
+    background-color: white;
+    cursor: pointer;
+    padding: 3px 6px 5px 6px;
+   
+}
+button{
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-in-out, visibility .5s ease-in-out ;
+    background-color: black;
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    width: 100%;
+    height:41px ;
+}
+.card:hover button { 
+    opacity: 1;
+    visibility: visible;
+}
+.sale{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    border-radius: 4px;
+    padding-left: 8px;
+    width: 55px;
+    height: 26px;
+    background-color: #DB4444;
+    
+}
+.salenew{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    border-radius: 4px;
+    padding-left: 8px;
+    width: 55px;
+    height: 26px;
+    background-color: #00FF66;
+    
+}
+@media (max-width : 750px){
+    .card{
+        left: 40%;
+    }
+}
+@media (max-width : 500px){
+    .card{
+        left: 11%;
+    }
+}

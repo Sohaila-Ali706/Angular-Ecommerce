@@ -1,0 +1,23 @@
+.icon i{
+    font-size: 29px;
+    width: 80px;
+    height: 80px;
+    color: white;
+    margin-top: 40px;
+    background-color: black;
+    padding-top: 6%;
+    border-radius: 50%;
+    text-align: center;
+    border: solid rgb(162, 158, 162)  11px;
+}
+
+.arrival{
+    display: flex;
+    justify-content: center;
+    gap: 88px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.arrival{
+    margin-bottom: 100px;
+}

@@ -1,0 +1,61 @@
+.cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.spicialhesd {
+  color: #db4444;
+  font-weight: bold;
+  position: relative;
+}
+.spicialhesd p {
+  margin-left: 40px;
+}
+.spicialhesd ::before {
+  background-color: #db4444;
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  left: 0px;
+
+  top: -25%;
+  content: "";
+  border-radius: 4px;
+}
+.flashSale {
+  position: relative;
+}
+button {
+  background-color: #db4444;
+  color: white;
+  width: 234px;
+  height: 56px;
+  margin-bottom: 50px;
+  border: none;
+  border-radius: 4px;
+}
+.bton {
+  text-align: center;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.best {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+@media (max-width: 800px) {
+  .best .bestB {
+    width: 90px;
+  }
+}
+.Products{
+  margin-top: 100px;
+}

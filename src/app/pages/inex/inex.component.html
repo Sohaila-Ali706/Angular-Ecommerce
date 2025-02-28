@@ -1,0 +1,97 @@
+<div>
+  <app-home></app-home>
+</div>
+<div class="flashSale mt-5">
+  <div class="spicialhesd">
+    <p>Today’s</p>
+  </div>
+  <div class="head mt-4">
+    <h2>Flash Sales</h2>
+
+    <app-countdown-timer></app-countdown-timer>
+  </div>
+  <div>
+    <div class="cards   mb-5 ">
+      <ng-container  *ngFor="let card of products">
+        <app-card-one [productDta]="card" [discountFlag]="true"></app-card-one>
+      </ng-container>
+    </div>
+    <div class="bton">
+      <button class=" ">View All Products</button>
+    </div>
+  </div>
+  <hr />
+</div>
+
+<div class="category mt-5">
+  <div class="spicialhesd">
+    <p>Category</p>
+  </div>
+  <div class="head mt-4 mb-5">
+    <h2>Browse By Category</h2>
+  </div>
+
+  <app-cardtwo></app-cardtwo>
+</div>
+
+<div class="bestSelling">
+  <div class="spicialhesd">
+    <p>This Month</p>
+  </div>
+  <div class="best mt-4">
+    <h2>Best Selling Products</h2>
+    <button class="bestB mt-5">View All</button>
+  </div>
+  <div>
+    <div class="cards mb-5 ">
+      <div *ngFor="let card of products">
+        <app-card-one [productDta]="card"></app-card-one>
+      </div>
+    </div>
+  </div>
+
+  <app-speaker></app-speaker>
+
+</div>
+
+<div class="Products ">
+  <div class="spicialhesd">
+    <p>Our Products</p>
+  </div>
+  <div class="head mt-4 mb-5">
+    <h2>Explore Our Products</h2>
+  </div>
+
+  <div class="cards ">
+    <div *ngFor="let card of products">
+      <app-card-one [productDta]="card"></app-card-one>
+    </div>
+  </div>
+
+  <div class="cards ">
+    <div *ngFor="let card of products">
+      <app-card-one [productDta]="card" [new]="true"></app-card-one>
+    </div>
+  </div>
+  <div class="bton">
+    <button class=" ">View All Products</button>
+  </div>
+</div>
+
+<div class="Featured mt-5 mb-5">
+  <div class="spicialhesd">
+    <p>Featured</p>
+  </div>
+  <div class="head mt-4 mb-5">
+    <h2>New Arrival</h2>
+  </div>
+
+  <app-featured-card class="mb-5"></app-featured-card>
+
+  <app-card-three></app-card-three>
+</div>
+
+
+
+
+
