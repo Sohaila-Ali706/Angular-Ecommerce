@@ -16,6 +16,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LoginComponent } from './pages/login/login.component';
     HomeComponent,
     SignupComponent,
     LoginComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

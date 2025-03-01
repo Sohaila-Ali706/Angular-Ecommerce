@@ -13,6 +13,11 @@ margin-right: 10px;
     justify-content: space-between;
     align-items: center;
 }
+@media (max-width :1000px){
+    .flex{
+        flex-wrap: wrap;
+    }
+}
  .callUs{
     width: 340px;
     height: 457px;
