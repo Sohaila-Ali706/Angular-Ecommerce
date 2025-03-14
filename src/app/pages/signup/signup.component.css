@@ -13,13 +13,14 @@ body {
   display: flex;
   width: 80%;
   max-width: 800px;
-  height: 400px;
+  height: 450px;
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .image-section {
@@ -52,9 +53,12 @@ form {
 input {
   margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 5px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
   font-size: 14px;
+  border-bottom: 1px solid #ccc;
 }
 
 .create-account {
@@ -65,6 +69,8 @@ input {
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  margin-bottom: 15px;
+  margin-top: 7px;
 }
 
 .google-signup {
