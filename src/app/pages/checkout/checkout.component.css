@@ -1,0 +1,155 @@
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.billing-details {
+  max-width: 400px;
+  margin: auto;
+}
+
+.billing-details h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.billing-details form {
+  display: flex;
+  flex-direction: column;
+}
+
+.billing-details label {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.billing-details input {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  background: #f8f8f8;
+  font-size: 14px;
+}
+
+.save-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.save-info input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+.billing-details {
+  flex: 1;
+}
+
+.order-summary {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 70px;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.totals p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.payment-method {
+  margin: 15px 0;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.payment-icons {
+  display: flex;
+  gap: 10px;
+  margin-left: 90px;
+}
+
+.payment-icons img {
+  width: 40px;
+  height: auto;
+  background-color:none;
+}
+.totals{
+  color: #777;
+}
+.ss{
+  margin-left: 280px;
+}
+.coupon {
+  display: flex;
+  gap: 10px;
+}
+
+.coupon input {
+  flex: 1;
+  padding: 10px;
+}
+
+.coupon button {
+  background: rgb(223,92, 15);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.place-order {
+  width: 40%;
+  background: rgb(223, 92, 15);
+  color: white;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+  }
+
+  .order-summary {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .billing-details {
+    max-width: 100%;
+  }
+}

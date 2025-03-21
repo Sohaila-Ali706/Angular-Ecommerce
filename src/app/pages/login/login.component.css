@@ -21,6 +21,7 @@ body {
   flex-wrap: wrap;
   margin-top: 50px;
   margin-bottom: 50px;
+  justify-content: space-between;
 }
 
 .image-section {

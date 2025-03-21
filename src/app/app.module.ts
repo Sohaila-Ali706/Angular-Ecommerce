@@ -19,6 +19,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ErrorComponent } from './pages/error/error.component';
     FooterComponent,
     AboutComponent,
     ErrorComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
