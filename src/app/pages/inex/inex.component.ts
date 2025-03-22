@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlobalService } from '../../services/global.service';
 
 @Component({
   selector: 'app-inex',
@@ -9,34 +10,17 @@ import { Component } from '@angular/core';
 export class InexComponent {
   
 
-  products = [
-    {
-      
-      "title": "HAVIT HV-G92 Gamepad",
-      "url": "g92-2-500x500 1.png",
-      
-    },
-    {
-      
-      "title": "AK-900 Wired Keyboard ",
-      "url": "ak-900-01-500x500 1.png",
-      
-    },
-    {
-      
-      "title": "IPS LCD Gaming Monitor ",
-      "url": "g27cq4-500x500 1.png",
-      
-    },
-    {
-      
-      "title": "S-Series Comfort Chair  ",
-      "url": "273c46e1c3dc0a8915c4b031d347.png",
-      
-    },  
-    
-    ]
+  cards:any =[]
+res: any;
+  constructor (public global: GlobalService) {
+  console.log(this.global.getPosts())
 
+ this.global.getPosts().subscribe(res=>{
+  console.log(res)
+  this.cards =res.products
+ })
+
+  }
 
     
     

@@ -1,70 +1,74 @@
+.number {
+  margin-top: 18px;
+}
+.image {
+  background-color: #f5f5f5;
+  height: 250px;
+}
+.parent {
+  position: relative;
+}
 
-.number{
-    margin-top: -5px;
+.icons {
+  position: absolute;
+  top: 12px;
+  right: 12px;
 }
-.image{
-    background-color:#F5F5F5 ;
-    height: 250px;
+.iconone,
+.icontwo,
+.iconthree {
+  background-color: white;
+  cursor: pointer;
+  padding: 3px 6px 5px 6px;
 }
-.parent{
-    position: relative;
+.stars {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -28px;
 }
-
-.icons{
-    position: absolute;
-    top: 12px;
-    right: 12px;
+button {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  background-color: black;
+  position: absolute;
+  bottom: 0%;
+  left: 0;
+  width: 100%;
+  height: 41px;
 }
-.iconone , .icontwo ,.iconthree{
-    background-color: white;
-    cursor: pointer;
-    padding: 3px 6px 5px 6px;
-   
+.card:hover button {
+  opacity: 1;
+  visibility: visible;
 }
-button{
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity .5s ease-in-out, visibility .5s ease-in-out ;
-    background-color: black;
-    position: absolute;
-    bottom: 0%;
-    left: 0;
-    width: 100%;
-    height:41px ;
+.sale {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 4px;
+  padding-left: 8px;
+  width: 70px;
+  height: 26px;
+  background-color: #db4444;
 }
-.card:hover button { 
-    opacity: 1;
-    visibility: visible;
+.salenew {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  border-radius: 4px;
+  padding-left: 8px;
+  width: 55px;
+  height: 26px;
+  background-color: #00ff66;
 }
-.sale{
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    border-radius: 4px;
-    padding-left: 8px;
-    width: 55px;
-    height: 26px;
-    background-color: #DB4444;
-    
+@media (max-width: 750px) {
+  .card {
+    left: 40%;
+  }
 }
-.salenew{
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    border-radius: 4px;
-    padding-left: 8px;
-    width: 55px;
-    height: 26px;
-    background-color: #00FF66;
-    
-}
-@media (max-width : 750px){
-    .card{
-        left: 40%;
-    }
-}
-@media (max-width : 500px){
-    .card{
-        left: 11%;
-    }
+@media (max-width: 500px) {
+  .card {
+    left: 11%;
+  }
 }

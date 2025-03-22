@@ -20,6 +20,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { AllProductsComponent } from './pages/all-products/all-products.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,12 +43,16 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     AboutComponent,
     ErrorComponent,
     CheckoutComponent,
+    AllProductsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

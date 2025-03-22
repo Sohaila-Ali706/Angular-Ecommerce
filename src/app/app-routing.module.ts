@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { AllProductsComponent } from './pages/all-products/all-products.component';
 
 const routes: Routes = [
   { path :"" , component: InexComponent } ,
@@ -16,8 +17,10 @@ const routes: Routes = [
   { path :"signup" , component: SignupComponent},
   { path :"login" , component: LoginComponent},
   { path :"about" , component: AboutComponent},
+  { path : "checkout" , component:CheckoutComponent},
+  { path : "all-products" , component:AllProductsComponent},
   { path :"**" , component: ErrorComponent},
-  { path : "checkout" , component:CheckoutComponent}
+
 ];
 
 @NgModule({

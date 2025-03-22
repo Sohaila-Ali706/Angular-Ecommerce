@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-card-one',
@@ -7,8 +7,7 @@ import { Component, Input, input } from '@angular/core';
   styleUrl: './card-one.component.css'
 })
 export class CardOneComponent {
-star =[1,2,3,4,5]
-@Input() productDta :any
+@Input() product: any;
 @Input() discountFlag = false
 @Input() new =false
 @Input() iconone =true

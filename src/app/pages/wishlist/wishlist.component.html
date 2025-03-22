@@ -5,10 +5,9 @@
   </div>
 
   <div class="wish  mb-5">
-    <ng-container *ngFor="let card of cardone">
+    <ng-container *ngFor="let card of cards |slice:56:57">
       <app-card-one
-        [productDta]="card"
-        [discountFlag]="true"
+        [product]="card"
         [iconone]="false"
         [icontwo]="false"
         [iconthree]="true"
@@ -16,9 +15,9 @@
       ></app-card-one>
     </ng-container>
 
-    <ng-container *ngFor="let card of threeCards">
+    <ng-container *ngFor="let card of cards |slice:4:7">
       <app-card-one
-        [productDta]="card"
+        [product]="card"
         [iconone]="false"
         [icontwo]="false"
         [iconthree]="true"
@@ -36,27 +35,27 @@
   </div>
 
   <div class="wish">
-    <ng-container *ngFor="let card of cardone">
+    <ng-container *ngFor="let card of cards |slice:10:11">
       <app-card-one
-        [productDta]="card"
+        [product]="card"
         [discountFlag]="true"
         [iconone]="false"
         [icontwo]="true"
       ></app-card-one>
     </ng-container>
 
-    <ng-container *ngFor="let card of cardone">
+    <ng-container *ngFor="let card of cards |slice:19:20">
       <app-card-one
-        [productDta]="card"
+        [product]="card"
         [iconone]="false"
         [icontwo]="true"
         [delprice]="false"
       ></app-card-one>
     </ng-container>
 
-    <ng-container *ngFor="let card of cardone">
+    <ng-container *ngFor="let card of cards |slice:49:50">
       <app-card-one
-        [productDta]="card"
+        [product]="card"
         [new]="true"
         [iconone]="false"
         [icontwo]="true"
@@ -64,9 +63,9 @@
       ></app-card-one>
     </ng-container>
 
-    <ng-container *ngFor="let card of cardone">
+    <ng-container *ngFor="let card of cards |slice:59:60">
       <app-card-one
-        [productDta]="card"
+        [product]="card"
         [iconone]="false"
         [icontwo]="true"
         [delprice]="false"
