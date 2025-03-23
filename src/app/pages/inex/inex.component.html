@@ -63,11 +63,14 @@
   </div>
 
   <div class="cards ">
-    <div *ngFor="let product of cards |slice:90:94 ">
+    <div *ngFor="let product of cards |slice:90:92 ">
+      <app-card-one [product]="product"></app-card-one>
+    </div>
+    <div *ngFor="let product of cards |slice:77:79 ">
       <app-card-one [product]="product"></app-card-one>
     </div>
   </div>
-
+      
   <div class="cards ">
     <div *ngFor="let product of cards |slice:26:30 ">
       <app-card-one [product]="product" [new]="true"></app-card-one>

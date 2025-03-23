@@ -59,7 +59,7 @@
         </div>
         <div class="icontwo mb-1 rounded-circle" *ngIf="icontwo">
           <svg
-            routerLink="/about/{{ product?.id }}"
+          [routerLink]="['/all-products', product.id]"
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"

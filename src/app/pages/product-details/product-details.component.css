@@ -1,0 +1,181 @@
+.row {
+
+    display: flex;
+    
+    align-items: stretch;
+    
+    }
+    
+    .text{
+    
+    color: #00FF66;
+    
+    }
+    
+    .main-image {
+    
+    width: 100%;
+    
+    max-height: 100%;
+    
+    object-fit: contain;
+    
+    border-radius: 10px;
+    
+    }
+    
+    @media (max-width: 768px) {
+    
+    .main-image {
+    
+    max-height: 300px;
+    
+    }
+    
+    }
+    
+    .color-option {
+    
+    width: 25px;
+    
+    height: 25px;
+    
+    cursor: pointer;
+    
+    border: 2px solid transparent;
+    
+    transition: border 0.3s;
+    
+    }
+    
+    .active-color {
+    
+    border-color: black;
+    
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    
+    }
+    
+    button.btn-outline.btn-sm {
+    
+    border: 1px solid grey;
+    
+    width: 40px;
+    
+    color: grey;
+    
+    }
+    
+    .active-size {
+    
+    background-color:#DB4444 !important;
+    
+    border-color: #DB4444 !important;
+    
+    color: white !important;
+    
+    }
+    
+    button.btn-outline-secondary:hover {
+    
+    background-color: transparent !important;
+    
+    border: 1px solid grey;
+    
+    }
+    
+    .wishlist-btn {
+    
+    border-radius: 4px;
+    
+    width: 40px;
+    
+    height: 38px;
+    
+    display: flex;
+    
+    align-items: center;
+    
+    justify-content: center;
+    
+    border: 2px solid rgba(128, 128, 128, 0.658);
+    
+    background: transparent;
+    
+    cursor: pointer;
+    
+    }
+    
+    .wishlist-btn i {
+    
+    font-size: 1.8rem;
+    
+    transition: color 0.3s;
+    
+    }
+    
+    .wishlist-btn.active i {
+    
+    color: #DB4444 !important;
+    
+    }
+    
+    .quantity-btn {
+    
+    transition: background-color 0.3s, color 0.3s;
+    
+    }
+    
+    .quantity-btn:hover {
+    
+    background-color: #DB4444!important;
+    
+    color: white !important;
+    
+    }
+    
+    .quantity-container {
+    
+    display: flex;
+    
+    align-items: center;
+    
+    justify-content: space-between;
+    
+    width: 100%;
+    
+    max-width: 200px;
+    
+    border: 4px solid ;
+    
+    border-radius: 5px;
+    
+    }
+    
+    .quantity-btn {
+    
+    background-color: transparent;
+    
+    font-size: 1.2rem;
+    
+    cursor: pointer;
+    
+    }
+    
+    .quantity-display {
+    
+    flex: 1;
+    
+    text-align: center;
+    
+    }
+    
+    .btn-danger {
+    
+    width: 100%;
+    
+    max-width: 200px;
+    
+    padding: 7px 6px;
+    
+    }

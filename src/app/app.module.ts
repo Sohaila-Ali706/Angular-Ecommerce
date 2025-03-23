@@ -22,6 +22,7 @@ import { ErrorComponent } from './pages/error/error.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { AllProductsComponent } from './pages/all-products/all-products.component';
 import { provideHttpClient } from '@angular/common/http';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { provideHttpClient } from '@angular/common/http';
     ErrorComponent,
     CheckoutComponent,
     AllProductsComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,
