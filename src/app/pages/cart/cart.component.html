@@ -1,0 +1,56 @@
+<div class="container my-5">
+    <nav>
+      <span>Home / <strong>Cart</strong></span>
+    </nav>
+  
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr class="shadow-sm p-3 mb-4 bg-white rounded" style="margin-bottom: 50px;" >
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        
+        <tr *ngFor="let item of cartItems" class="shadow-sm p-3 mb-4 bg-white rounded" style="margin-bottom: 50%;">
+          <td>
+            <div class="d-flex align-items-center">
+              <div class="position-relative">
+                <img [src]="item.image" alt="{{ item.name }}" class="img-thumbnail">
+                <button class="delete-btn" (click)="removeItem(item.id)"><i class="fas fa-x"></i></button>
+              </div>
+              <span class="ms-3">{{ item.name }}</span>
+            </div>
+          </td>
+          <td>${{ item.price }}</td>
+          <td>
+            <input type="number" class="form-control w-50" [(ngModel)]="item.quantity" (change)="updateQuantity(item.id, item.quantity)">
+          </td>
+          <td>${{ item.price * item.quantity }}</td>
+        </tr>
+      </table>
+    </div>
+  
+    <div class="d-flex justify-content-between">
+      <button class="btn btn-outline-dark">Return To Shop</button>
+      <button class="btn btn-outline-dark">Update Cart</button>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <input type="text" class="form-contro mt-2 w-50" placeholder="Coupon Code"[(ngModel)]="couponCode">
+        <button class="btn btn-danger mt-2 w-50" (click)="applyCoupon()">Apply Coupon</button>
+      </div>
+      <div class="col-md-6">
+        <div class="shadow-sm p-3 mb-4 bg-white rounded">
+          <h5>Cart Total</h5>
+          <p>Subtotal: <strong>${{ subtotal }}</strong></p>
+          <p>Shipping: <strong>Free</strong></p>
+          <p>Total: <strong>${{ subtotal }}</strong></p>
+          <button class="btn btn-danger w-50" style="justify-content: center; margin-left: 28%;">Proceed to Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+

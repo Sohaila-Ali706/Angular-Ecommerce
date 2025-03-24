@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardOneComponent } from './card-one/card-one.component';
@@ -23,6 +23,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { AllProductsComponent } from './pages/all-products/all-products.component';
 import { provideHttpClient } from '@angular/common/http';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -46,10 +48,13 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
     CheckoutComponent,
     AllProductsComponent,
     ProductDetailsComponent,
+    CartComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideHttpClient()

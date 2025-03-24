@@ -1,0 +1,126 @@
+nav{
+    margin-bottom: 5%;
+  }
+  .table-row-spacing {
+    margin-bottom: 15px !important;
+  }
+  .container {
+    max-width: 900px;
+    padding: 30px 0;
+  }
+  
+  .img-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 10px;
+    position: relative; 
+  }
+  
+  .delete-btn {
+    border: none;
+    transform: translate(50%, -50%);
+    margin-right: 71px;
+    position: absolute;
+    top: 2px; 
+    right: 2px;
+    left: 0px;
+    padding: 0px;
+    color: rgb(201, 14, 14);
+    border: none;
+    font-size: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 30px;
+  }
+  
+  th, td {  
+    vertical-align: middle;
+    text-align: flex-start;
+    padding: 10px;
+  }
+  
+  .form-control {
+    text-align: center;
+    max-width: 60px;
+    padding: 10px;
+  }
+  .form-contro {
+    text-align: center;
+    max-width: 100%;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    font-size: 14px;
+  }
+  .btn {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  
+  .bg-white {
+    background-color: #fff !important;
+  }
+  
+  .shadow-sm {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .p-4 {
+    padding: 20px !important;
+  }
+  
+  .table-row-spacing {
+    margin-bottom: 15px !important;
+  }
+  
+  .custom-btn {
+    width: 221px;
+    height: 56px;
+  }
+  
+  .custom-input {
+    width: 221px;
+    height: 56px;
+  }
+  
+  @media (max-width: 768px) {
+    .form-control {
+      width: 100% !important; 
+      min-width: 70px; 
+      text-align: center;
+      font-size: 16px; 
+    }
+  
+    
+    .img-thumbnail {
+      width: 50px; 
+      height: 50px;
+    }
+  
+    
+    .d-flex {
+      flex-wrap: wrap; 
+    }
+  
+   
+    .delete-btn {
+      top: 2px; 
+      right: 0px; 
+      font-size: 10px;
+      padding: 0px;
+    }
+  }
+  .position-relative {
+    display: inline-block;
+    position: relative; 
+    width: fit-content; 
+  }
+  
+  
+  
+    

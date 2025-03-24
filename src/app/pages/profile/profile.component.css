@@ -1,0 +1,22 @@
+nav{
+    margin-bottom: 5%;
+  }
+  
+  .list-group-item {
+    cursor: pointer;
+    background-color: transparent !important;
+    border: none !important; 
+    padding: 5px 10px; 
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .shadow-box {
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }  
+  
+  .list-group-item.active {
+    color:  #dc3545 !important; 
+    font-weight: bold; 
+  }
+  
