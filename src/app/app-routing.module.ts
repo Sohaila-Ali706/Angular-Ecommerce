@@ -10,6 +10,8 @@ import { ErrorComponent } from './pages/error/error.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { AllProductsComponent } from './pages/all-products/all-products.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   { path :"" , component: InexComponent } ,
@@ -19,7 +21,9 @@ const routes: Routes = [
   { path :"login" , component: LoginComponent},
   { path :"about" , component: AboutComponent},
   { path : "checkout" , component:CheckoutComponent},
+  { path : "cart" , component:CartComponent},
   { path : "all-products" , component:AllProductsComponent},
+  { path : "profile" , component:ProfileComponent},
   { path : "all-products/:cardId" , component:ProductDetailsComponent},
     { path :"**" , component: ErrorComponent},
 
