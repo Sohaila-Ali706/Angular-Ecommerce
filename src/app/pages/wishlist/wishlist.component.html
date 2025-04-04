@@ -1,29 +1,26 @@
 <div class="wishlist container mt-5 mb-5">
   <div class="head">
-    <h3>Wishlist (4)</h3>
-    <button>Move All To Bag</button>
+    <h3>Wishlist ({{ cards.length }})</h3>
+    <button (click)="moveAllToBag()">Move All To Bag</button>
+    <button (click)="clearWishlist()">Clear Wishlist</button>
   </div>
 
-  <div class="wish  mb-5">
-    <ng-container *ngFor="let card of cards |slice:56:57">
-      <app-card-one
-        [product]="card"
-        [iconone]="false"
-        [icontwo]="false"
-        [iconthree]="true"
-        [stars]="false"
-      ></app-card-one>
-    </ng-container>
-
-    <ng-container *ngFor="let card of cards |slice:4:7">
-      <app-card-one
-        [product]="card"
-        [iconone]="false"
-        [icontwo]="false"
-        [iconthree]="true"
-        [stars]="false"
-        [delprice]="false"
-      ></app-card-one>
+  <div class="wish mb-5">
+    <ng-container *ngFor="let card of cards">
+      <div class="product-item">
+        <app-card-one
+          [product]="card"
+          [iconone]="false"
+          [icontwo]="false"
+          [iconthree]="true"
+          [stars]="false"
+          (toggleWishlist)="toggleWishlist(card)"
+          (removeproductfromeishlist)="removeProductFromWishlist(card)"
+        ></app-card-one>
+        <button class="remove-icon" (click)="removeProductFromWishlist(card.id)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </div>
     </ng-container>
   </div>
 
@@ -35,41 +32,57 @@
   </div>
 
   <div class="wish">
-    <ng-container *ngFor="let card of cards |slice:10:11">
+    <ng-container *ngFor="let card of cards">
       <app-card-one
         [product]="card"
         [discountFlag]="true"
         [iconone]="false"
         [icontwo]="true"
+        (toggleWishlist)="toggleWishlist(card)"
       ></app-card-one>
+      <button class="remove-icon" (click)="removeProductFromWishlist(card.id)">
+        <i class="fa fa-trash"></i>
+      </button>
     </ng-container>
 
-    <ng-container *ngFor="let card of cards |slice:19:20">
+    <ng-container *ngFor="let card of cards">
       <app-card-one
         [product]="card"
         [iconone]="false"
         [icontwo]="true"
         [delprice]="false"
+        (toggleWishlist)="toggleWishlist(card)"
       ></app-card-one>
+      <button class="remove-icon" (click)="removeProductFromWishlist(card.id)">
+        <i class="fa fa-trash"></i>
+      </button>
     </ng-container>
 
-    <ng-container *ngFor="let card of cards |slice:49:50">
+    <ng-container *ngFor="let card of cards">
       <app-card-one
         [product]="card"
         [new]="true"
         [iconone]="false"
         [icontwo]="true"
         [delprice]="false"
+        (toggleWishlist)="toggleWishlist(card)"
       ></app-card-one>
+      <button class="remove-icon" (click)="removeProductFromWishlist(card.id)">
+        <i class="fa fa-trash"></i>
+      </button>
     </ng-container>
 
-    <ng-container *ngFor="let card of cards |slice:59:60">
+    <ng-container *ngFor="let card of cards">
       <app-card-one
         [product]="card"
         [iconone]="false"
         [icontwo]="true"
         [delprice]="false"
+        (toggleWishlist)="toggleWishlist(card)"
       ></app-card-one>
+      <button class="remove-icon" (click)="removeProductFromWishlist(card.id)">
+        <i class="fa fa-trash"></i>
+      </button>
     </ng-container>
   </div>
 </div>

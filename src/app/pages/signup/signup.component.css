@@ -62,7 +62,7 @@ input {
 }
 
 .create-account {
-  background-color: #dc3545;
+  background-color: #DB4444;
   color: #fff;
   padding: 10px;
   border: none;
@@ -97,7 +97,7 @@ input {
 }
 
 .login-text a {
-  color: #dc3545;
+  color:#DB4444;
   text-decoration: none;
 }
 

@@ -1,7 +1,7 @@
 <div class="checkout-container">
   <div class="billing-details">
-      <h2>Billing Details</h2>
-      <form>
+    <h2>Billing Details</h2>
+    <form>
       <label>First Name*</label>
       <input type="text" required />
 
@@ -24,40 +24,41 @@
       <input type="email" required />
 
       <label class="save-info">
-          <input type="checkbox" />
-          Save this information for faster check-out next time
+        <input type="checkbox" />
+        Save this information for faster check-out next time
       </label>
-      </form>
-  </div>
-<div class="order-summary">
-  <div class="item">
-  <img src="images/WhatsApp Image 2025-03-15 at 10.16.15 PM.jpeg" alt="LCD Monitor" />
-  <span>LCD Monitor</span>
-  <span>$650</span>
+    </form>
   </div>
 
-  <div class="item">
-  <img src="images/WhatsApp Image 2025-03-15 at 10.16.57 PM.jpeg" alt="H1 Gamepad" />
-  <span>H1 Gamepad</span>
-  <span>$1100</span>
-  </div>
+  <div class="order-summary">
+    <div *ngFor="let item of cartItems" class="item">
 
-  <div class="totals">
-  <p>Subtotal: <span>$1750</span></p>
-  <hr>
-  <p>Shipping: <span>Free</span></p>
-  <hr>
-  <p>Total: <span>$1750</span></p>
-  </div>
+      <img [src]="item?.image || 'assets/default-image.jpg'" alt="Product Image" width="50" height="50" />
 
-  <div class="payment-method">
+      <span>{{ item.name }}</span>
+
+      <span>${{ item.price.toFixed(2) }}</span>
+      <span>Quantity: {{ item.quantity }}</span>
+
+      <button (click)="removeItem(item.id)" class="remove-btn">Remove</button>
+    </div>
+
+    <div class="totals">
+      <p>Subtotal: <span>${{ subtotal.toFixed(2) }}</span></p>
+      <hr />
+      <p>Shipping: <span>Free</span></p>
+      <hr />
+      <p>Total: <span>${{ subtotal.toFixed(2) }}</span></p>
+    </div>
+
+    <div class="payment-method">
       <label class="payment-option">
         <input type="radio" name="payment" />
         <span>Bank</span>
         <div class="payment-icons">
-          <img src="images/WhatsApp Image 2025-03-22 at 12.11.45 AM.jpeg" alt="Visa" />
-          <img src="images/WhatsApp Image 2025-03-22 at 12.20.35 AM.jpeg" alt="MasterCard" />
-          <img src="images/WhatsApp Image 2025-03-22 at 12.20.43 AM.jpeg" alt="Amex" />
+          <img src="WhatsApp Image 2025-03-22 at 12.20.43 AM.jpeg" alt="Visa" />
+          <img src="WhatsApp Image 2025-03-22 at 12.11.45 AM.jpeg" alt="MasterCard" />
+          <img src="WhatsApp Image 2025-03-22 at 12.20.35 AM.jpeg" alt="Amex" />
         </div>
       </label>
 
@@ -67,12 +68,11 @@
       </label>
     </div>
 
+    <div class="coupon">
+      <input type="text" placeholder="Coupon Code" />
+      <button>Apply Coupon</button>
+    </div>
 
-  <div class="coupon">
-  <input type="text" placeholder="Coupon Code" />
-  <button>Apply Coupon</button>
+    <button class="place-order" (click)="placeOrder()">Place Order</button>
   </div>
-
-  <button class="place-order">Place Order</button>
-</div>
 </div>

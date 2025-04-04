@@ -8,7 +8,7 @@ import { GlobalService } from '../../services/global.service';
   styleUrl: './inex.component.css'
 })
 export class InexComponent {
-  
+
 
   cards:any =[]
 res: any;
@@ -21,12 +21,5 @@ res: any;
  })
 
   }
-
-    
-    
-    
-
-
-
 
 }

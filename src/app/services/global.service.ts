@@ -6,14 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GlobalService {
+  constructor(private http: HttpClient) {}
 
-    constructor(public http : HttpClient) { }
-  
-  getPosts():Observable<any>{
-    return this.http.get("https://dummyjson.com/products?limit=100")
+  getPosts(): Observable<any> {
+    return this.http.get("https://dummyjson.com/products?limit=100");
   }
-
+  
   getSinglePost(id:any):Observable<any>{
     return this.http.get(`https://dummyjson.com/products/${id}`)
   }
 }
+

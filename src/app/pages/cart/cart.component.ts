@@ -1,31 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart',
   standalone: false,
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
+  styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
-  cartItems = [
-    { id: 1, name: 'LCD Monitor', price: 650, quantity: 1, image: 'Monitor-Cart-Small.png' },
-    { id: 2, name: 'H1 Gamepad', price: 550, quantity: 2, image: 'Gamepad-Cart-Small.png' }
-  ];
-
+export class CartComponent implements OnInit {
+  cartItems: any[] = [];
   couponCode: string = '';
+
+  constructor(private cartService: CartService, private router: Router) {}
+
+  ngOnInit() {
+    this.cartService.getCart().subscribe(cart => {
+      this.cartItems = cart;
+    });
+  }
 
   get subtotal(): number {
     return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   }
 
   updateQuantity(id: number, quantity: number) {
-    const item = this.cartItems.find(item => item.id === id);
-    if (item && quantity >= 1) {
-      item.quantity = quantity;
+    if (quantity >= 1) {
+      this.cartService.updateQuantity(id, quantity);
     }
   }
 
   removeItem(id: number) {
+    this.cartService.removeFromCart(id);
+    // تحديث العرض بعد الحذف
     this.cartItems = this.cartItems.filter(item => item.id !== id);
   }
 
@@ -35,5 +42,10 @@ export class CartComponent {
     } else {
       alert('Invalid coupon code');
     }
+  }
+
+  goToCheckout() {
+    localStorage.setItem('cart', JSON.stringify(this.cartItems));
+    this.router.navigate(['/checkout']);
   }
 }

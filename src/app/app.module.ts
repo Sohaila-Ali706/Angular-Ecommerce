@@ -25,6 +25,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { WishlistService } from './services/wishlist.service';
+import { CartService } from './services/cart.service';
 
 @NgModule({
   declarations: [
@@ -57,8 +59,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     FormsModule
   ],
   providers: [
-    provideHttpClient()
-
+    provideHttpClient(),
+    WishlistService, CartService
   ],
   bootstrap: [AppComponent]
 })
