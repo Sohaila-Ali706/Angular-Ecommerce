@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { Router } from '@angular/router';
 import { WishlistService } from '../services/wishlist.service';
+import { SharedService } from '../services/shared.service';
+import { GlobalService } from '../services/global.service';
 import { Subscription } from 'rxjs'; // تأكد من استيراد Subscription هنا
 
 @Component({
@@ -13,13 +16,18 @@ export class NavbarComponent implements OnInit, OnDestroy {
   cartCount: number = 0;
   wishlistCount: number = 0;
 
+  searchTerm: string = '';
+
   // إضافة Subscriptions لتخزين الاشتراكات
   private cartCountSubscription: Subscription | undefined; // السماح للقيمة بأن تكون undefined
   private wishlistCountSubscription: Subscription | undefined; // السماح للقيمة بأن تكون undefined
 
   constructor(
     private cartService: CartService,
-    private wishlistService: WishlistService
+    private wishlistService: WishlistService,
+    private sharedService: SharedService,
+    private router: Router,
+    private global: GlobalService
   ) {}
 
   ngOnInit() {
@@ -40,6 +48,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
     if (this.wishlistCountSubscription) {
       this.wishlistCountSubscription.unsubscribe();
+    }
+  }
+  search() {
+    const trimmed = this.searchTerm.trim().toLowerCase();
+  
+    if (trimmed) {
+      this.sharedService.setSearchTerm(trimmed);
+      this.sharedService.setCategory(""); // نمسح الفئة خالص
+  
+      
+      this.router.navigate(['/all-products'], {
+        queryParams: { search: trimmed }
+      });
     }
   }
 }

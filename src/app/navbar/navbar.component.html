@@ -37,10 +37,10 @@
         <input
           class="searchInput"
           type="text"
-          name=""
+          [(ngModel)]="searchTerm"
           placeholder="Search something"
         />
-        <button class="searchButton" href="#">
+        <button class="searchButton" (click)="search()">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="29"

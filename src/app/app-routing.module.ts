@@ -12,6 +12,7 @@ import { AllProductsComponent } from './pages/all-products/all-products.componen
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { SingleCategoryComponent } from './pages/single-category/single-category.component';
 
 const routes: Routes = [
   { path :"" , component: InexComponent } ,
@@ -23,10 +24,10 @@ const routes: Routes = [
   { path : "checkout" , component:CheckoutComponent},
   { path : "cart" , component:CartComponent},
   { path : "all-products" , component:AllProductsComponent},
+  { path : "category/:catName" , component:SingleCategoryComponent},
   { path : "profile" , component:ProfileComponent},
   { path : "all-products/:cardId" , component:ProductDetailsComponent},
-    { path :"**" , component: ErrorComponent},
-
+  { path :"**" , component: ErrorComponent},
 ];
 
 @NgModule({

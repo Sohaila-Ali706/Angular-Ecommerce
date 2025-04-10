@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../../services/global.service';
+import { SharedService } from '../../services/shared.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-all-products',
@@ -7,14 +9,36 @@ import { GlobalService } from '../../services/global.service';
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.css',
 })
-export class AllProductsComponent {
+export class AllProductsComponent implements OnInit{
   products: any[] = [];
+  filteredProducts: any[] = [];
 
-  constructor(private global: GlobalService) {
-    this.global.getPosts().subscribe((res) => {
-      console.log(res);
-      this.products = res.products;
-    });
+  constructor(private global: GlobalService,
+    private sharedService: SharedService, private route: ActivatedRoute) {}
+   
+  
+    ngOnInit() { 
+     
+       this.global.getPosts().subscribe((res) => {
+        this.products = res.products;
+        this.applyFilter(); 
+      });
     
-  }
-}
+      setTimeout(() => {
+        this.applyFilter();
+      }, 100);
+    }
+    
+    applyFilter() {
+      const search = this.sharedService.getSearchTerm()?.toLowerCase();
+      const category = this.sharedService.getCategory();
+    
+      this.filteredProducts = this.products.filter((p) => {
+        const matchesSearch = search ? p.title.toLowerCase().includes(search) : true;
+        const matchesCategory = category ? p.category === category : true;
+        return matchesSearch && matchesCategory;
+      });
+    
+      console.log("Filtered Products:", this.filteredProducts);
+    }                
+}                                      

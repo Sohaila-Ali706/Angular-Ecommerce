@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../../services/shared.service';
+import { GlobalService } from '../../services/global.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,18 +9,11 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
-categories = [
-  { name: "Woman’s Fashion", subCategories: [] },
-  { name: "Men’s Fashion", subCategories: [] },
-  { name: "Electronics", subCategories: [] },
-  { name: "Home & Lifestyle", subCategories: [] },
-  { name: "Medicine", subCategories: [] },
-  { name: "Sports & Outdoor", subCategories: [] },
-  { name: "Baby's & Toys", subCategories: [] },
-  { name: "Groceries & Pets", subCategories: [] },
-  { name: "Health & Beauty", subCategories: [] }
-];
+export class HomeComponent implements OnInit{
+  categories: string[] = [];
+  products: any[] = [];
+  filteredProducts: any[] = [];
+ 
 slides = [
   {
     title: "iPhone 14 Series",
@@ -41,11 +37,31 @@ slides = [
 
 currentSlideIndex = 0;
 
-constructor() {
+constructor(
+  private sharedService: SharedService,
+  private router: Router, private globalService: GlobalService) {
   setInterval(() => {
     this.nextSlide();
   }, 5000);
 }
+
+ngOnInit() {
+  this.globalService.getPosts().subscribe((res: any) => {
+    this.products = res.products;
+    this.categories = [...new Set(this.products.map((p: any) => p.category))];
+  });
+}
+filterByCategory(category: string) {
+  this.filteredProducts = this.products.filter(p => p.category === category);
+}
+
+
+navigateToFilteredProducts(category: string) {
+  this.sharedService.setCategory(category);
+  this.sharedService.setSearchTerm("");
+  this.router.navigate(['/all-products'], { queryParams: { category } });
+}
+
 nextSlide() {
   this.currentSlideIndex = (this.currentSlideIndex + 1) % this.slides.length;
 }

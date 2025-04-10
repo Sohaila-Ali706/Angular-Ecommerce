@@ -10,6 +10,9 @@ import { CardThreeComponent } from './card-three/card-three.component';
 import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GlobalService } from './services/global.service';
+import { SharedService } from './services/shared.service';
 import { FeaturedCardComponent } from './featured-card/featured-card.component';
 import { SpeakerComponent } from './speaker/speaker.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -27,6 +30,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { WishlistService } from './services/wishlist.service';
 import { CartService } from './services/cart.service';
+import { SingleCategoryComponent } from './pages/single-category/single-category.component';
 
 @NgModule({
   declarations: [
@@ -52,15 +56,17 @@ import { CartService } from './services/cart.service';
     ProductDetailsComponent,
     CartComponent,
     ProfileComponent,
+    SingleCategoryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     provideHttpClient(),
-    WishlistService, CartService
+    WishlistService, CartService, GlobalService, SharedService,
   ],
   bootstrap: [AppComponent]
 })

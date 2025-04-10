@@ -1,13 +1,13 @@
 <div class="container">
   <div class="sidebar">
     <ul>
-      <li *ngFor="let category of categories; let i = index">
-        {{ category.name }}
-        <span *ngIf="i < 2">&gt;</span>
+      <!-- (click)="navigateToFilteredProducts(category)" -->
+      <li *ngFor="let category of categories" >
+        {{ category }}
       </li>
     </ul>
   </div>
-
+  
   <div class="slider">
     <div class="slide">
       <div class="slide-text">
