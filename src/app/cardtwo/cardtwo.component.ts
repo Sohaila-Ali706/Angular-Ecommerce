@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { SharedService } from '../services/shared.service';
 import { GlobalService } from '../services/global.service';
 
 @Component({
@@ -11,7 +10,8 @@ import { GlobalService } from '../services/global.service';
 })
 
 export class CardtwoComponent {
-
+  filteredProducts: any[] = [];
+  
   category = [
     { i: "fa-solid fa-mobile-screen", title: "mobile-accessories" },
     { i: "fa-solid fa-laptop", title: "laptops" },
@@ -25,10 +25,10 @@ export class CardtwoComponent {
     { i: "fa-solid fa-basket-shopping", title: "groceries" },
     { i: "fa-solid fa-house", title: "home-decoration" }
   ];
-  constructor(private router: Router, private sharedService: SharedService, private global: GlobalService) {}
-  filterCategory(title: string) {
-    this.sharedService.setCategory(title);     
-    this.sharedService.setSearchTerm('');      
-    this.router.navigate(['/all-products']);    
-  }
+  constructor(private router: Router,  private global: GlobalService) {}
+  
+ filterCategory(category: string) {
+   this.router.navigate(['/all-products'], { queryParams: { category } });
+ }
+
 }

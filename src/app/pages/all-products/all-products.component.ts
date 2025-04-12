@@ -19,26 +19,23 @@ export class AllProductsComponent implements OnInit{
   
     ngOnInit() { 
      
-       this.global.getPosts().subscribe((res) => {
-        this.products = res.products;
-        this.applyFilter(); 
+    this.global.getPosts().subscribe((res) => {
+       this.products = res.products;
+       console.log("all products:", res);
+     
       });
     
       setTimeout(() => {
-        this.applyFilter();
+       // this.applyFilter();
       }, 100);
-    }
+
+
+      this.route.queryParams.subscribe(params => {
+       const categoryFromQuery = params['category'];
+        if (categoryFromQuery) {
+        }
+      // this.applyFilter();
+      });      
+   }
+  }
     
-    applyFilter() {
-      const search = this.sharedService.getSearchTerm()?.toLowerCase();
-      const category = this.sharedService.getCategory();
-    
-      this.filteredProducts = this.products.filter((p) => {
-        const matchesSearch = search ? p.title.toLowerCase().includes(search) : true;
-        const matchesCategory = category ? p.category === category : true;
-        return matchesSearch && matchesCategory;
-      });
-    
-      console.log("Filtered Products:", this.filteredProducts);
-    }                
-}                                      

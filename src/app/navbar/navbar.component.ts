@@ -51,16 +51,17 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   }
   search() {
-    const trimmed = this.searchTerm.trim().toLowerCase();
+    this.router.navigateByUrl(`/category/${this.searchTerm}`)
+   // const trimmed = this.searchTerm.trim().toLowerCase();
   
-    if (trimmed) {
-      this.sharedService.setSearchTerm(trimmed);
-      this.sharedService.setCategory(""); // نمسح الفئة خالص
+    //if (trimmed) {
+    //  this.sharedService.setSearchTerm(trimmed);
+    //  this.sharedService.setCategory(""); 
   
       
-      this.router.navigate(['/all-products'], {
-        queryParams: { search: trimmed }
-      });
-    }
+    //  this.router.navigate(['/all-products'], {
+    //    queryParams: { search: trimmed }
+     // });
+   // }
   }
 }

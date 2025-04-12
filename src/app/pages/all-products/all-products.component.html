@@ -1,12 +1,12 @@
 
-<div class="products">
+<!--<div class="products">
   <div *ngFor="let product of filteredProducts">
     {{product.category}} - {{ product.title }}
   </div>
-</div>
+</div> -->
 
 <div class="row">
     <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let product of products ">
       <app-card-one [product]="product"></app-card-one>
     </div>
-  </div>
+  </div> 

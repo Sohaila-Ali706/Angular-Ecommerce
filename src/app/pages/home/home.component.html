@@ -1,8 +1,7 @@
 <div class="container">
   <div class="sidebar">
     <ul>
-      <!-- (click)="navigateToFilteredProducts(category)" -->
-      <li *ngFor="let category of categories" >
+      <li *ngFor="let category of categories" routerLink="category/{{category}}" >
         {{ category }}
       </li>
     </ul>

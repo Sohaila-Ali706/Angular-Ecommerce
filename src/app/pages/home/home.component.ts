@@ -57,8 +57,6 @@ filterByCategory(category: string) {
 
 
 navigateToFilteredProducts(category: string) {
-  this.sharedService.setCategory(category);
-  this.sharedService.setSearchTerm("");
   this.router.navigate(['/all-products'], { queryParams: { category } });
 }
 

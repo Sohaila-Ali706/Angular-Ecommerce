@@ -1,1 +1,7 @@
-<p>single-category works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-3 col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let product of filteredproducts">
+            <app-card-one [product]="product" [new]="true"></app-card-one>
+        </div>
+    </div>
+</div>
