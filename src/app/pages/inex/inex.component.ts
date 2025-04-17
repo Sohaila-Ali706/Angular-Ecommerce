@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../../services/global.service';
 
 @Component({
@@ -7,19 +7,34 @@ import { GlobalService } from '../../services/global.service';
   templateUrl: './inex.component.html',
   styleUrl: './inex.component.css'
 })
-export class InexComponent {
+export class InexComponent implements OnInit {
 
+  isLoading = true;
+  cards: any[] = [];
 
-  cards:any =[]
-res: any;
-  constructor (public global: GlobalService) {
-  console.log(this.global.getPosts())
+  constructor(public global: GlobalService) {}
 
- this.global.getPosts().subscribe(res=>{
-  console.log(res)
-  this.cards =res.products
- })
+  ngOnInit() {
+    const hasSeenLoading = sessionStorage.getItem('hasSeenLoading');
 
+    if (!hasSeenLoading) {
+      this.isLoading = true;
+      setTimeout(() => {
+        this.isLoading = false;
+        sessionStorage.setItem('hasSeenLoading', 'true');
+
+        this.loadProducts(); // نحمل المنتجات بعد انتهاء التحميل
+      }, 1000);
+    } else {
+      this.isLoading = false;
+      this.loadProducts(); // نحمل المنتجات على طول
+    }
   }
 
+  loadProducts() {
+    this.global.getPosts().subscribe(res => {
+      console.log(res);
+      this.cards = res.products;
+    });
+  }
 }

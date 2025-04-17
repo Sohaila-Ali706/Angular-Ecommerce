@@ -10,7 +10,7 @@ import { GlobalService } from '../../services/global.service';
   styleUrl: './single-category.component.css'
 })
 export class SingleCategoryComponent {
-
+  isLoading = true
   filteredproducts:any =[]
   constructor(private router: Router, private activate: ActivatedRoute, private global:GlobalService) {}
 
@@ -26,6 +26,11 @@ export class SingleCategoryComponent {
 
 
     })
+    // تحكم في الـ setTimeout (لوجيك الـ loading)
+    setTimeout(() => {
+      this.isLoading = false; 
+    }, 800);  // بعد ثانية واحدة، اختفاء الـ loading
+
   }
   
 }

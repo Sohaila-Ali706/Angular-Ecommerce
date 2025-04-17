@@ -9,33 +9,37 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.css',
 })
-export class AllProductsComponent implements OnInit{
+export class AllProductsComponent implements OnInit {
   products: any[] = [];
   filteredProducts: any[] = [];
+  isLoading = true;
 
-  constructor(private global: GlobalService,
-    private sharedService: SharedService, private route: ActivatedRoute) {}
-   
-  
-    ngOnInit() { 
-     
+  constructor(
+    private global: GlobalService,
+    private sharedService: SharedService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    // تحميل المنتجات من الـ API
     this.global.getPosts().subscribe((res) => {
-       this.products = res.products;
-       console.log("all products:", res);
-     
-      });
-    
-      setTimeout(() => {
-       // this.applyFilter();
-      }, 100);
+      this.products = res.products;
+      console.log('all products:', res);
+    });
 
+    // تحكم في الـ setTimeout (لوجيك الـ loading)
+    setTimeout(() => {
+      this.isLoading = false; 
+    }, 800);  // بعد ثانية واحدة، اختفاء الـ loading
 
-      this.route.queryParams.subscribe(params => {
-       const categoryFromQuery = params['category'];
-        if (categoryFromQuery) {
-        }
+    // التعامل مع query params من الرابط
+    this.route.queryParams.subscribe((params) => {
+      const categoryFromQuery = params['category'];
+      if (categoryFromQuery) {
+        // يمكن هنا تضيف فلترة حسب الـ category إذا لزم الأمر
+      }
+      // هذا السطر يمكن تفعيله حسب الحاجة
       // this.applyFilter();
-      });      
-   }
+    });
   }
-    
+}

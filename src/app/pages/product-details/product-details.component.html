@@ -1,71 +1,128 @@
-<div class="container py-5">
-  <div class="row align-items-stretch">
-    <div class="col-md-5">
-      <img [src]="cards?.thumbnail || cards?.images[0] || 'assets/default.jpg'" class="main-image" alt="Main Image">
-    </div>
+<div class="container py-5">  <div class="row align-items-stretch"><div class="col-md-5">
 
-    <!-- details -->
-    <div class="col-md-5 d-flex flex-column details-section">
-      <h2>{{ cards?.title }}</h2>
-      <p class="text-muted">
-        <i class="fas fa-star text-warning"></i>
-        {{ cards?.rating }} Reviews | <span class="text">In Stock</span>
-      </p>
-      <h3 class="text-danger">${{ cards?.price }}</h3>
-      <p>{{ cards?.description }}</p>
-
-      <!-- colours -->
-      <div class="d-flex align-items-center mb-3">
-        <label class="me-2"><strong>Colours:</strong></label>
-        <div class="d-flex">
-          <span *ngFor="let color of product.colors"
-                (click)="selectColor(color)"
-                [ngClass]="{'active-color': selectedColor === color}"
-                [style.background]="color"
-                class="rounded-circle border mx-1 color-option">
-          </span>
-        </div>
-      </div>
-
-      <!-- size -->
-      <div class="d-flex align-items-center mb-3">
-        <label class="me-2"><strong>Size:</strong></label>
-        <div class="d-flex">
-          <button *ngFor="let size of product.sizes"
-                  (click)="selectSize(size)"
-                  [ngClass]="{'active-size': selectedSize === size}"
-                  class="btn btn-outline btn-sm mx-1">
-            {{ size }}
-          </button>
-        </div>
-      </div>
-
-      <!-- quantity -->
-      <div class="d-flex align-items-center mb-3">
-        <div class="d-flex align-items-center border rounded me-3">
-          <button class="btn btn-light btn-sm quantity-btn" (click)="decreaseQuantity()">-</button>
-          <div class="px-3">{{ quantity }}</div>
-          <button class="btn btn-light btn-sm quantity-btn" (click)="increaseQuantity()">+</button>
-        </div>
-        <button class="btn btn-danger me-2" (click)="buyNow()">Buy Now</button>
-
-
-        <!-- Wishlist Button -->
-        <button class="wishlist-btn" (click)="toggleWishlist()">
-          <i [ngClass]="wishlistActive ? 'fas fa-heart text-danger' : 'far fa-heart'"></i>
-        </button>
-      </div>
-
-      <!-- delivery -->
-      <div class="p-3 border rounded mt-4">
-        <p class="mb-1"><img src="icon-delivery.png" alt=""><strong>Free Delivery</strong></p>
-        <p class="text-muted">
-          Enter your postal code for Delivery Availability
-        </p>
-        <hr>
-        <p class="mb-1"><img src="Icon-return.png" alt=""><strong>Return Delivery</strong></p>
-        <p class="text-muted">Free 30 Days Delivery Returns. <a href="#">Details</a></p>
-      </div>
-    </div>
+    <img [src]="cards?.thumbnail || cards?.images[0] || 'assets/default.jpg'" class="main-image" alt="Main Image">
+  
   </div>
-</div>
+  
+  
+  
+  <!-- details -->
+  
+  <div class="col-md-5 d-flex flex-column details-section">
+  
+    <h2>{{ cards?.title }}</h2>
+  
+    <p class="text-muted">
+  
+      <i class="fas fa-star text-warning"></i>
+  
+        
+      {{ cards?.rating }} Reviews | <span class="text">In Stock</span>
+  
+    </p>
+  
+    <h3 class="text-danger">${{ cards?.price *quantity}}</h3>
+  
+    <p>{{ cards?.description }}</p>
+  
+  
+  
+    <!-- colours -->
+  
+    <div class="d-flex align-items-center mb-3">
+  
+      <label class="me-2"><strong>Colours:</strong></label>
+  
+      <div class="d-flex">
+  
+        <span *ngFor="let color of product.colors"
+  
+              (click)="selectColor(color)"
+  
+              [ngClass]="{'active-color': selectedColor === color}"
+  
+              [style.background]="color"
+  
+              class="rounded-circle border mx-1 color-option">
+  
+        </span>
+  
+      </div>
+  
+    </div>
+  
+  
+  
+    <!-- size -->
+  
+    <div class="d-flex align-items-center mb-3">
+  
+      <label class="me-2"><strong>Size:</strong></label>
+  
+      <div class="d-flex">
+  
+        <button *ngFor="let size of product.sizes"
+  
+                (click)="selectSize(size)"
+  
+                [ngClass]="{'active-size': selectedSize === size}"
+  
+                class="btn btn-outline btn-sm mx-1">
+  
+          {{ size }}
+  
+        </button>
+  
+      </div>
+  
+    </div>
+  
+  
+  
+    <!-- quantity -->
+  
+    <div class="d-flex align-items-center mb-3">
+  
+      <div class="d-flex align-items-center border rounded me-3">
+  
+        <button class="btn btn-light btn-sm quantity-btn" (click)="decreaseQuantity()">-</button>
+  
+        <div class="px-3">{{ quantity }}</div>
+  
+        <button class="btn btn-light btn-sm quantity-btn" (click)="increaseQuantity()">+</button>
+  
+      </div>
+  
+      <button class="btn btn-danger me-2">Buy Now</button>
+  
+      <button class="wishlist-btn" (click)="toggleWishlist()">
+  
+        <i [ngClass]="wishlistActive ? 'fas fa-heart' : 'far fa-heart'"></i>
+  
+      </button>
+  
+    </div>
+  
+  
+  
+    <!-- delivery -->
+  
+    <div class="p-3 border rounded mt-4">
+  
+      <p class="mb-1"><img src="icon-delivery.png" alt=""><strong>Free Delivery</strong></p>
+  
+      <p class="text-muted">
+  
+      Enter your postal code for Delivery Availability</p>
+  
+      <hr>
+  
+      <p class="mb-1"><img src="Icon-return.png" alt=""><strong>Return Delivery</strong></p>
+  
+      <p class="text-muted">Free 30 Days Delivery Returns. <a href="#">Details</a></p>
+  
+    </div>
+  
+  </div>
+  
+    </div></div>

@@ -31,6 +31,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { WishlistService } from './services/wishlist.service';
 import { CartService } from './services/cart.service';
 import { SingleCategoryComponent } from './pages/single-category/single-category.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SingleCategoryComponent } from './pages/single-category/single-category
     CartComponent,
     ProfileComponent,
     SingleCategoryComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
