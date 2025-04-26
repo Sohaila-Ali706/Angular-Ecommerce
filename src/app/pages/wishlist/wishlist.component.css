@@ -16,6 +16,10 @@ button{
     width: 150px;
 }
 
+.remove-icon{
+  width: 50px;
+  border-radius: 50%;
+}
 @media (max-width : 500px){
     button{
         width: 135px;
@@ -42,9 +46,9 @@ button{
     height: 40px;
     position: absolute;
     left: 0px;
-     
+
     top: -25%;
     content: "";
     border-radius: 4px;
-    
+
 }

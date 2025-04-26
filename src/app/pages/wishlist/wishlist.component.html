@@ -5,6 +5,7 @@
     <button (click)="clearWishlist()">Clear Wishlist</button>
   </div>
 
+  <!-- المنتجات بتاعة الـ Wishlist -->
   <div class="wish mb-5">
     <ng-container *ngFor="let card of cards">
       <div class="product-item">
@@ -24,65 +25,24 @@
     </ng-container>
   </div>
 
-  <div class="wish">
-    <div class="spicialhesd">
-      <p>Just For You</p>
-    </div>
+  <!-- عنوان الـ Just For You -->
+  <div class="wish spicialhesd">
+    <p>Just For You</p>
     <button class="btntwo">See All</button>
   </div>
 
+  <!-- المنتجات العشوائية اللي جت من الجلوبال -->
   <div class="wish">
-    <ng-container *ngFor="let card of cards">
-      <app-card-one
-        [product]="card"
-        [discountFlag]="true"
-        [iconone]="false"
-        [icontwo]="true"
-        (toggleWishlist)="toggleWishlist(card)"
-      ></app-card-one>
-      <button class="remove-icon" (click)="removeProductFromWishlist(card.id)">
-        <i class="fa fa-trash"></i>
-      </button>
-    </ng-container>
-
-    <ng-container *ngFor="let card of cards">
-      <app-card-one
-        [product]="card"
-        [iconone]="false"
-        [icontwo]="true"
-        [delprice]="false"
-        (toggleWishlist)="toggleWishlist(card)"
-      ></app-card-one>
-      <button class="remove-icon" (click)="removeProductFromWishlist(card.id)">
-        <i class="fa fa-trash"></i>
-      </button>
-    </ng-container>
-
-    <ng-container *ngFor="let card of cards">
-      <app-card-one
-        [product]="card"
-        [new]="true"
-        [iconone]="false"
-        [icontwo]="true"
-        [delprice]="false"
-        (toggleWishlist)="toggleWishlist(card)"
-      ></app-card-one>
-      <button class="remove-icon" (click)="removeProductFromWishlist(card.id)">
-        <i class="fa fa-trash"></i>
-      </button>
-    </ng-container>
-
-    <ng-container *ngFor="let card of cards">
-      <app-card-one
-        [product]="card"
-        [iconone]="false"
-        [icontwo]="true"
-        [delprice]="false"
-        (toggleWishlist)="toggleWishlist(card)"
-      ></app-card-one>
-      <button class="remove-icon" (click)="removeProductFromWishlist(card.id)">
-        <i class="fa fa-trash"></i>
-      </button>
+    <ng-container *ngFor="let product of randomProducts">
+      <div class="product-item">
+        <app-card-one
+          [product]="product"
+          [discountFlag]="true"
+          [iconone]="false"
+          [icontwo]="true"
+          [delprice]="false"
+        ></app-card-one>
+      </div>
     </ng-container>
   </div>
 </div>
