@@ -1,32 +1,88 @@
-  <div *ngIf="message" [ngClass]="{'success-message': message.type === 'success', 'error-message': message.type === 'error', 'warning-message': message.type === 'warning'}" class="message-box">
-    <p>{{ message.text }}</p>
-  </div>
-<div class="checkout-container" *ngIf="cartItems.length > 0">
+<div *ngIf="message" [ngClass]="{'success-message': message.type === 'success', 'error-message': message.type === 'error', 'warning-message': message.type === 'warning'}" class="message-box">
+  <p>{{ message.text }}</p>
+</div>
 
+<div class="checkout-container" *ngIf="cartItems.length > 0">
   <div class="billing-details">
     <h2>Billing Details</h2>
-    <form>
-      <label>First Name*</label>
-      <input type="text" [(ngModel)]="formData.firstName" name="firstName" required />
+    <form #checkoutForm="ngForm" (ngSubmit)="placeOrder(checkoutForm)">
 
+      <label>First Name*</label>
+      <input
+        type="text"
+        [(ngModel)]="formData.firstName"
+        name="firstName"
+        required
+        minlength="3"
+        #firstName="ngModel"
+        [ngClass]="{'invalid': firstName.invalid && firstName.touched}" />
+      <div *ngIf="firstName.invalid && firstName.touched" class="error-message">
+        First name must be at least 3 characters long.
+      </div>
+
+      <!-- Company Name -->
       <label>Company Name</label>
       <input type="text" [(ngModel)]="formData.company" name="company" />
 
+      <!-- Street Address -->
       <label>Street Address*</label>
-      <input type="text" [(ngModel)]="formData.street" name="street" required />
+      <input
+        type="text"
+        [(ngModel)]="formData.street"
+        name="street"
+        required
+        #street="ngModel"
+        [ngClass]="{'invalid': street.invalid && street.touched}" />
+      <div *ngIf="street.invalid && street.touched" class="error-message">
+        Street address is required.
+      </div>
 
+      <!-- Apartment (optional) -->
       <label>Apartment, floor, etc. (optional)</label>
       <input type="text" [(ngModel)]="formData.apartment" name="apartment" />
 
+      <!-- City -->
       <label>Town/City*</label>
-      <input type="text" [(ngModel)]="formData.city" name="city" required />
+      <input
+        type="text"
+        [(ngModel)]="formData.city"
+        name="city"
+        required
+        #city="ngModel"
+        [ngClass]="{'invalid': city.invalid && city.touched}" />
+      <div *ngIf="city.invalid && city.touched" class="error-message">
+        City is required.
+      </div>
 
+      <!-- Phone Number -->
       <label>Phone Number*</label>
-      <input type="tel" [(ngModel)]="formData.phone" name="phone" required />
+      <input
+        type="tel"
+        [(ngModel)]="formData.phone"
+        name="phone"
+        required
+        pattern="^(010|011|012|015)\d{8}$"
+        #phone="ngModel"
+        [ngClass]="{'invalid': phone.invalid && phone.touched}" />
+      <div *ngIf="phone.invalid && phone.touched" class="error-message">
+        Phone number must start with 010, 011, 012, or 015 and be 11 digits long.
+      </div>
 
+      <!-- Email Address -->
       <label>Email Address*</label>
-      <input type="email" [(ngModel)]="formData.email" name="email" required />
+      <input
+        type="email"
+        [(ngModel)]="formData.email"
+        name="email"
+        required
+        pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+        #email="ngModel"
+        [ngClass]="{'invalid': email.invalid && email.touched}" />
+      <div *ngIf="email.invalid && email.touched" class="error-message">
+        Email must be in the format: usernamegmail.com
+      </div>
 
+      <!-- Save Info Checkbox -->
       <label class="save-info">
         <input type="checkbox" [(ngModel)]="formData.saveInfo" name="saveInfo" />
         Save this information for faster check-out next time
@@ -34,6 +90,7 @@
     </form>
   </div>
 
+  <!-- ملخص الطلب -->
   <div class="order-summary">
     <div *ngFor="let item of cartItems" class="item">
       <img [src]="item.image || 'assets/default-image.jpg'" alt="Product Image" width="50" height="50" />
@@ -51,14 +108,15 @@
       <p>Total: <span>{{ total.toFixed(2) }} EGP</span></p>
     </div>
 
+    <!-- طرق الدفع -->
     <div class="payment-method">
       <label class="payment-option">
         <input type="radio" name="payment" value="bank" [(ngModel)]="paymentMethod" />
         <span>Bank</span>
         <div class="payment-icons">
-          <img src="WhatsApp Image 2025-03-22 at 12.20.43 AM.jpeg" alt="Visa" />
-          <img src="WhatsApp Image 2025-03-22 at 12.11.45 AM.jpeg" alt="MasterCard" />
-          <img src="WhatsApp Image 2025-03-22 at 12.20.35 AM.jpeg" alt="Meeza" />
+          <img src="assets/visa-icon.jpg" alt="Visa" />
+          <img src="assets/mastercard-icon.jpg" alt="MasterCard" />
+          <img src="assets/meeza-icon.jpg" alt="Meeza" />
         </div>
       </label>
 
@@ -68,11 +126,12 @@
       </label>
     </div>
 
+    <!-- كود الخصم -->
     <div class="coupon">
       <input type="text" placeholder="Coupon Code" [(ngModel)]="couponCode" name="coupon" />
       <button type="button" (click)="applyCoupon()">Apply Coupon</button>
     </div>
 
-    <button class="place-order" (click)="placeOrder()">Place Order</button>
+    <button class="place-order" [disabled]="!checkoutForm.valid" type="submit">Place Order</button>
   </div>
 </div>

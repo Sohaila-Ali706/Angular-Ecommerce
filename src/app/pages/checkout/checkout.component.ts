@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css'],
-   standalone: false,
+  standalone: false,
 })
 export class CheckoutComponent implements OnInit {
   cartItems: any[] = [];
@@ -24,7 +25,6 @@ export class CheckoutComponent implements OnInit {
 
   validCoupons: string[] = ['sohaila', 'mohamed', 'shahinda'];
   message: { text: string, type: 'success' | 'error' | 'warning' } | null = null;
-
 
   ngOnInit() {
     const storedCart = localStorage.getItem('cart');
@@ -54,14 +54,43 @@ export class CheckoutComponent implements OnInit {
     }
   }
 
-  placeOrder() {
-    if (!this.formData.street || !this.formData.city || !this.formData.phone) {
+  validateForm(): boolean {
+    // التحقق من النيم
+    if (this.formData.firstName.length < 3) {
+      this.message = { text: 'First name must be at least 3 characters.', type: 'error' };
+      return false;
+    }
+
+    // التحقق من التليفون
+    const phoneRegex = /^(010|011|012|015)[0-9]{8}$/;
+    if (!phoneRegex.test(this.formData.phone)) {
+      this.message = { text: 'Phone number must be valid (010, 011, 012, 015).', type: 'error' };
+      return false;
+    }
+
+    // التحقق من الجيميل
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    if (!emailRegex.test(this.formData.email)) {
+      this.message = { text: 'Email must be a valid Gmail address.', type: 'error' };
+      return false;
+    }
+
+    return true;
+  }
+
+  placeOrder(form: NgForm) {
+    if (!form.valid) {
       this.message = { text: 'Please fill all required fields.', type: 'warning' };
       return;
     }
 
     if (this.cartItems.length === 0) {
       this.message = { text: 'Your cart is empty.', type: 'warning' };
+      return;
+    }
+
+    // التحقق من صحة البيانات قبل إتمام الطلب
+    if (!this.validateForm()) {
       return;
     }
 
