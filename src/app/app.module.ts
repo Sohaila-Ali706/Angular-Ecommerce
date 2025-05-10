@@ -32,6 +32,8 @@ import { WishlistService } from './services/wishlist.service';
 import { CartService } from './services/cart.service';
 import { SingleCategoryComponent } from './pages/single-category/single-category.component';
 import { LoadingComponent } from './loading/loading.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,13 @@ import { LoadingComponent } from './loading/loading.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    }),
   ],
   providers: [
     provideHttpClient(),
