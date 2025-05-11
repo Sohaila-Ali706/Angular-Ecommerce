@@ -6,7 +6,7 @@
       </li>
     </ul>
   </div>
-  
+
   <div class="slider">
     <div class="slide">
       <div class="slide-text">
@@ -14,7 +14,7 @@
           {{ slides[currentSlideIndex].title }}
         </h3>
         <h2>{{ slides[currentSlideIndex].description }}</h2>
-        <a [href]="slides[currentSlideIndex].link" class="shop-now">Shop Now →</a>
+        <a [href]="slides[currentSlideIndex].link" class="shop-now" routerLink="/all-products">Shop Now →</a>
       </div>
       <div class="slide-image">
         <img [src]="slides[currentSlideIndex].image" alt="Product Image">

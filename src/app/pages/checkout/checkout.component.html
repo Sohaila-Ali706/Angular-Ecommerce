@@ -68,7 +68,6 @@
         Phone number must start with 010, 011, 012, or 015 and be 11 digits long.
       </div>
 
-      <!-- Email Address -->
       <label>Email Address*</label>
       <input
         type="email"
@@ -82,7 +81,6 @@
         Email must be in the format: usernamegmail.com
       </div>
 
-      <!-- Save Info Checkbox -->
       <label class="save-info">
         <input type="checkbox" [(ngModel)]="formData.saveInfo" name="saveInfo" />
         Save this information for faster check-out next time
@@ -90,7 +88,6 @@
     </form>
   </div>
 
-  <!-- ملخص الطلب -->
   <div class="order-summary">
     <div *ngFor="let item of cartItems" class="item">
       <img [src]="item.image || 'assets/default-image.jpg'" alt="Product Image" width="50" height="50" />
@@ -114,9 +111,9 @@
         <input type="radio" name="payment" value="bank" [(ngModel)]="paymentMethod" />
         <span>Bank</span>
         <div class="payment-icons">
-          <img src="assets/visa-icon.jpg" alt="Visa" />
-          <img src="assets/mastercard-icon.jpg" alt="MasterCard" />
-          <img src="assets/meeza-icon.jpg" alt="Meeza" />
+          <img src="WhatsApp Image 2025-03-22 at 12.20.43 AM.jpeg" alt="Visa" />
+          <img src="WhatsApp Image 2025-03-22 at 12.11.45 AM.jpeg" alt="MasterCard" />
+          <img src="WhatsApp Image 2025-03-22 at 12.20.35 AM.jpeg" alt="Meeza" />
         </div>
       </label>
 
