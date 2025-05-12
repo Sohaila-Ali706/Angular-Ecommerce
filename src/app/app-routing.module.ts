@@ -29,8 +29,8 @@ const routes: Routes = [
   { path : "category/:catName" , component:SingleCategoryComponent},
   { path : "profile" , component:ProfileComponent},
   { path : "all-products/:cardId" , component:ProductDetailsComponent},
-  { path :"**" , component: ErrorComponent},
   { path: "admin-dashboard" , component:AdminDashboardComponent},
+  { path :"**" , component: ErrorComponent},
 ];
 
 @NgModule({
