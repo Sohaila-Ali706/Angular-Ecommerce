@@ -13,6 +13,8 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 import { CartComponent } from './pages/cart/cart.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SingleCategoryComponent } from './pages/single-category/single-category.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+
 
 const routes: Routes = [
   { path :"" , component: InexComponent } ,
@@ -28,6 +30,7 @@ const routes: Routes = [
   { path : "profile" , component:ProfileComponent},
   { path : "all-products/:cardId" , component:ProductDetailsComponent},
   { path :"**" , component: ErrorComponent},
+  { path: "admin-dashboard" , component:AdminDashboardComponent},
 ];
 
 @NgModule({

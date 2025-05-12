@@ -33,7 +33,8 @@ import { CartService } from './services/cart.service';
 import { SingleCategoryComponent } from './pages/single-category/single-category.component';
 import { LoadingComponent } from './loading/loading.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,8 @@ import { ToastrModule } from 'ngx-toastr';
     ProfileComponent,
     SingleCategoryComponent,
     LoadingComponent,
+    AdminDashboardComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,11 +71,6 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({
-      timeOut: 3000,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true
-    }),
   ],
   providers: [
     provideHttpClient(),
