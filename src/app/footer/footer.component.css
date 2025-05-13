@@ -90,6 +90,7 @@ img{
   color: #bbb;
   font-size: 18px;
 }
+
 .social-icons a:hover {
   color: #fff;
 }
@@ -110,14 +111,7 @@ img{
   color: #555;
   font-size: 12px;
 }
-.qr img {
-  width: 76px;
-  height: 76px;
-  margin-bottom: 10px;
-  object-fit: contain; /* يمنع قص الصورة */
-  background-color: white; /* لو كانت الخلفية سوداء والصورة شفافة */
-  padding: 1px; 
-}
+
 @media (max-width : 1156px) ,(min-width : 450px){
     .app-links{
         width: 200px;

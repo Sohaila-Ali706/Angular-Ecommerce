@@ -1,54 +1,69 @@
-.head{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-button{
-    background: none;
-    border-radius: 4px ;
-    border-color:#00000080 ;
-    color: #00000033;
-    width: 223px;
-    height: 56px;
+button {
+  background: none;
+  border-radius: 6px;
+  border-color: #00000080;
+  color: #00000033;
+  width: 223px;
+  height: 56px;
+}
+.product-item {
+  position: relative;
+}
+.btntwo {
+  width: 150px;
 }
 
-.btntwo{
-    width: 150px;
-}
-
-.remove-icon{
+.remove-icon {
   width: 50px;
+  height: 50px;
   border-radius: 50%;
+  position: absolute;
+  top: 13%;
+  right: 3%;
 }
-@media (max-width : 500px){
-    button{
-        width: 135px;
-    }
+@media (max-width: 500px) {
+  button {
+    width: 90px;
+  }
+  .remove-icon {
+    top: 13%;
+    left: 90%;
+  }
 }
-.wish{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
+@media (min-width: 500px) and (max-width: 750px) {
+  .remove-icon {
+    top: 13%;
+    right: -38%;
+  }
+}
+.wish {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-.spicialhesd{
-    color:#DB4444 ;
-    font-weight: bold;
-    position: relative;
+.spicialhesd {
+  color: #db4444;
+  font-weight: bold;
+  position: relative;
 }
-.spicialhesd p{
-    margin-left: 40px;
+.spicialhesd p {
+  margin-left: 40px;
 }
-.spicialhesd ::before{
-    background-color:#DB4444 ;
-    width: 20px;
-    height: 40px;
-    position: absolute;
-    left: 0px;
+.spicialhesd ::before {
+  background-color: #db4444;
+  width: 20px;
+  height: 40px;
+  position: absolute;
+  left: 0px;
 
-    top: -25%;
-    content: "";
-    border-radius: 4px;
-
+  top: -25%;
+  content: "";
+  border-radius: 4px;
 }

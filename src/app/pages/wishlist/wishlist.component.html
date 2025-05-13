@@ -13,12 +13,14 @@
           [product]="card"
           [iconone]="false"
           [icontwo]="false"
-          [iconthree]="true"
           [stars]="false"
           (toggleWishlist)="toggleWishlist(card)"
           (removeproductfromeishlist)="removeProductFromWishlist(card)"
         ></app-card-one>
-        <button class="remove-icon" (click)="removeProductFromWishlist(card.id)">
+        <button
+          class="remove-icon"
+          (click)="removeProductFromWishlist(card.id)"
+        >
           <i class="fa fa-trash"></i>
         </button>
       </div>
