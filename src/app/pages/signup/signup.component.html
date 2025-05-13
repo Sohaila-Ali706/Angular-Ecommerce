@@ -5,6 +5,12 @@
     <h2>Create an account</h2>
     <p>Enter your details below</p>
 
+   <div *ngIf="message" [style.color]="messageColor" style="margin-bottom: 10px; font-weight: bold; display: flex; align-items: center;">
+  <span *ngIf="messageColor === 'green'" style="margin-right: 8px;">✅</span>
+  <span *ngIf="messageColor === 'red'" style="margin-right: 8px;">❌</span>
+  {{ message }}
+</div>
+
     <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
       <input
         type="text"
@@ -30,9 +36,6 @@
 
       <button type="submit" class="create-account">Create Account</button>
 
-      <button type="button" class="google-signup">
-        <img src="OIP.jpg" alt="Google" /> Sign up with Google
-      </button>
     </form>
 
     <p class="login-text">

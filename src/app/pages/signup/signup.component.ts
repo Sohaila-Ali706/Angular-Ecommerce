@@ -6,7 +6,7 @@ import { AuthService } from '../../services/auth.service';
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
-   standalone: false
+  standalone: false
 })
 export class SignupComponent {
   signupData = {
@@ -15,17 +15,23 @@ export class SignupComponent {
     password: ''
   };
 
+  message: string = '';
+  messageColor: string = '';
+
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     this.authService.signup(this.signupData).subscribe({
       next: (res) => {
-        console.log('تم التسجيل بنجاح', res);
-        // بعد التسجيل بنجاح ينقلك لصفحة تسجيل الدخول
-        this.router.navigate(['/login']);
+        this.message = 'Account created successfully!';
+        this.messageColor = 'green';
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 2000);
       },
       error: (err) => {
-        console.error('حصل خطأ أثناء التسجيل', err);
+        this.message = err.error?.msg || 'حصل خطأ أثناء التسجيل';
+        this.messageColor = 'red';
       }
     });
   }
