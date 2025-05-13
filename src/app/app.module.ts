@@ -62,7 +62,6 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     ProfileComponent,
     SingleCategoryComponent,
     LoadingComponent,
-    AdminDashboardComponent,
     AdminLoginComponent,
   ],
   imports: [
@@ -71,6 +70,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AdminDashboardComponent,
   ],
   providers: [
     provideHttpClient(),

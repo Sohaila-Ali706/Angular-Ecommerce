@@ -1,65 +1,62 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalService } from '../services/global.service';
-
-declare var window: any;
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-admin-dashboard',
-  standalone: false,
   templateUrl: './admin-dashboard.component.html',
-  styleUrl: './admin-dashboard.component.css'
+  styleUrls: ['./admin-dashboard.component.css']
 })
-export class AdminDashboardComponent implements OnInit{
-products: any[] = [];
+export class AdminDashboardComponent implements OnInit {
+  products: any[] = [];
   newTitle = '';
-  newPrice: number = 0;
+  newPrice = 0;
 
   editId: number | null = null;
   editTitle = '';
-  editPrice: number = 0;
+  editPrice = 0;
 
-  constructor(private global: GlobalService) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.global.getPosts().subscribe((res: any) => {
-      this.products = res.products;
+    this.loadProducts();
+  }
+
+  loadProducts() {
+    this.productService.getAllProducts().subscribe((res: any) => {
+      this.products = res;
     });
   }
 
- 
-  addProduct(newProduct: any) {
-    const newId = this.products.length + 1;
-    this.products.push({ ...newProduct, id: newId });
-    this.newTitle = '';
-    this.newPrice = 0;
+  addProduct() {
+    const newProduct = { title: this.newTitle, price: this.newPrice };
+    this.productService.addProduct(newProduct).subscribe(() => {
+      this.loadProducts();
+      this.newTitle = '';
+      this.newPrice = 0;
+    });
   }
 
- 
-  openEditModal(product: any) {
+  openEdit(product: any) {
     this.editId = product.id;
     this.editTitle = product.title;
     this.editPrice = product.price;
-    const modal = new window.bootstrap.Modal(document.getElementById('editModal'));
-    modal.show();
   }
 
-  
   saveEdit() {
-    const index = this.products.findIndex(p => p.id === this.editId);
-    if (index !== -1) {
-      this.products[index] = {
-        ...this.products[index],
-        title: this.editTitle,
-        price: this.editPrice
-      };
+    if (this.editId !== null) {
+      const updatedProduct = { title: this.editTitle, price: this.editPrice };
+      this.productService.updateProduct(this.editId, updatedProduct).subscribe(() => {
+        this.loadProducts();
+        this.editId = null;
+        this.editTitle = '';
+        this.editPrice = 0;
+      });
     }
-    const modal = window.bootstrap.Modal.getInstance(document.getElementById('editModal'));
-    modal.hide();
   }
 
-  
   deleteProduct(id: number) {
-    this.products = this.products.filter(p => p.id !== id);
+    this.productService.deleteProduct(id).subscribe(() => {
+      this.loadProducts();
+    });
   }
-
 }
