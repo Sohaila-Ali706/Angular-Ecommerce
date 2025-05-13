@@ -1,17 +1,42 @@
-    <div class="container">
-        <div class="image-section"></div>
-        <div class="form-section">
-            <h2>Create an account</h2>
-            <p>Enter your details below</p>
-            <form>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email or Phone Number" required>
-                <input type="password" placeholder="Password" required>
-                <button class="create-account">Create Account</button>
-                <button class="google-signup">
-                    <img src="OIP.jpg" alt="Google"> Sign up with Google
-                </button>
-            </form>
-            <p class="login-text">Already have an account? <a routerLink="/login">Log in</a></p>
-        </div>
-    </div>
+<div class="container">
+  <div class="image-section"></div>
+
+  <div class="form-section">
+    <h2>Create an account</h2>
+    <p>Enter your details below</p>
+
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+      <input
+        type="text"
+        placeholder="Name"
+        name="name"
+        [(ngModel)]="signupData.name"
+        required
+      />
+      <input
+        type="email"
+        placeholder="Email or Phone Number"
+        name="email"
+        [(ngModel)]="signupData.email"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        [(ngModel)]="signupData.password"
+        required
+      />
+
+      <button type="submit" class="create-account">Create Account</button>
+
+      <button type="button" class="google-signup">
+        <img src="OIP.jpg" alt="Google" /> Sign up with Google
+      </button>
+    </form>
+
+    <p class="login-text">
+      Already have an account? <a routerLink="/login">Log in</a>
+    </p>
+  </div>
+</div>

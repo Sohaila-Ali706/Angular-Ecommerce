@@ -14,24 +14,33 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SingleCategoryComponent } from './pages/single-category/single-category.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
-  { path :"" , component: InexComponent } ,
-  { path :"contact" , component: ContactComponent},
-  { path :"wishlist" , component: WishlistComponent},
-  { path :"signup" , component: SignupComponent},
-  { path :"login" , component: LoginComponent},
-  { path :"about" , component: AboutComponent},
-  { path : "checkout" , component:CheckoutComponent},
-  { path : "cart" , component:CartComponent},
-  { path : "all-products" , component:AllProductsComponent},
-  { path : "category/:catName" , component:SingleCategoryComponent},
-  { path : "profile" , component:ProfileComponent},
-  { path : "all-products/:cardId" , component:ProductDetailsComponent},
-  { path: "admin-dashboard" , component:AdminDashboardComponent},
-  { path :"**" , component: ErrorComponent},
+  { path: '', redirectTo: 'signup', pathMatch: 'full' },
+
+
+  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+
+  { path: 'home', component: InexComponent, canActivate: [AuthGuard] },
+  { path: 'contact', component: ContactComponent, canActivate: [AuthGuard] },
+  { path: 'wishlist', component: WishlistComponent, canActivate: [AuthGuard] },
+  { path: 'about', component: AboutComponent, canActivate: [AuthGuard] },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+  { path: 'all-products', component: AllProductsComponent, canActivate: [AuthGuard] },
+  { path: 'category/:catName', component: SingleCategoryComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'all-products/:cardId', component: ProductDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard] },
+
+
+  { path: '**', component: ErrorComponent }
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

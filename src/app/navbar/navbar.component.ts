@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { WishlistService } from '../services/wishlist.service';
 import { SharedService } from '../services/shared.service';
 import { GlobalService } from '../services/global.service';
-import { Subscription } from 'rxjs'; // تأكد من استيراد Subscription هنا
+import { Subscription } from 'rxjs';
+import { AuthService } from '../services/auth.service'; // ✅ استيراد AuthService
 
 @Component({
   selector: 'app-navbar',
@@ -15,23 +16,21 @@ import { Subscription } from 'rxjs'; // تأكد من استيراد Subscriptio
 export class NavbarComponent implements OnInit, OnDestroy {
   cartCount: number = 0;
   wishlistCount: number = 0;
-
   searchTerm: string = '';
 
-  // إضافة Subscriptions لتخزين الاشتراكات
-  private cartCountSubscription: Subscription | undefined; // السماح للقيمة بأن تكون undefined
-  private wishlistCountSubscription: Subscription | undefined; // السماح للقيمة بأن تكون undefined
+  private cartCountSubscription: Subscription | undefined;
+  private wishlistCountSubscription: Subscription | undefined;
 
   constructor(
     private cartService: CartService,
     private wishlistService: WishlistService,
     private sharedService: SharedService,
     private router: Router,
-    private global: GlobalService
+    private global: GlobalService,
+    private authService: AuthService // ✅ حقن AuthService
   ) {}
 
   ngOnInit() {
-    // الاشتراك في الـ Observable الخاص بالعدد
     this.cartCountSubscription = this.cartService.getCartCountObservable().subscribe(count => {
       this.cartCount = count;
     });
@@ -42,26 +41,16 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // التأكد من إلغاء الاشتراكات لتجنب تسريب الذاكرة
-    if (this.cartCountSubscription) {
-      this.cartCountSubscription.unsubscribe();
-    }
-    if (this.wishlistCountSubscription) {
-      this.wishlistCountSubscription.unsubscribe();
-    }
+    if (this.cartCountSubscription) this.cartCountSubscription.unsubscribe();
+    if (this.wishlistCountSubscription) this.wishlistCountSubscription.unsubscribe();
   }
+
   search() {
-    this.router.navigateByUrl(`/category/${this.searchTerm}`)
-   // const trimmed = this.searchTerm.trim().toLowerCase();
-  
-    //if (trimmed) {
-    //  this.sharedService.setSearchTerm(trimmed);
-    //  this.sharedService.setCategory(""); 
-  
-      
-    //  this.router.navigate(['/all-products'], {
-    //    queryParams: { search: trimmed }
-     // });
-   // }
+    this.router.navigateByUrl(`/category/${this.searchTerm}`);
+  }
+
+  logout() {
+    this.authService.logout();            // ✅ حذف التوكن
+    this.router.navigate(['/login']);     // ✅ توجيه المستخدم
   }
 }

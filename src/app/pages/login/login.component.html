@@ -1,15 +1,31 @@
 <div class="container">
   <div class="image-section"></div>
+
   <div class="form-section">
-      <h2>Log in to Exclusive</h2>
-      <p>Enter your details below</p>
-      <form>
-          <input type="email" placeholder="Email or Phone Number" required>
-          <input type="password" placeholder="Password" required>
-          <div class="buttons">
-              <button class="login-btn">Log In</button>
-              <a href="#" class="forgot-password">Forgot Password?</a>
-          </div>
-      </form>
+    <h2>Log in to Exclusive</h2>
+    <p>Enter your details below</p>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+      <input
+        type="email"
+        placeholder="Email or Phone Number"
+        name="email"
+        [(ngModel)]="loginData.email"
+        required
+      />
+
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        [(ngModel)]="loginData.password"
+        required
+      />
+
+      <div class="buttons">
+        <button type="submit" class="login-btn">Log In</button>
+        <a href="#" class="forgot-password">Forgot Password?</a>
+      </div>
+    </form>
   </div>
 </div>
