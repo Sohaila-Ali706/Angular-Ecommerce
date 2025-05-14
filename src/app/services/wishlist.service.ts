@@ -59,7 +59,8 @@ export class WishlistService {
   }
 
 getWishlistCountObservable() {
-return this.wishlistCountSubject.asObservable();}
+  return this.wishlistCountSubject.asObservable();
+}
 
   getWishlistCount(): number {
     return this.wishlist.length;
