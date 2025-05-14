@@ -14,11 +14,14 @@ import { CartComponent } from './pages/cart/cart.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SingleCategoryComponent } from './pages/single-category/single-category.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'signup', pathMatch: 'full' },
+  { path: '', redirectTo: '/admin-login', pathMatch: 'full' },
 
 
   { path: 'signup', component: SignupComponent },
@@ -34,7 +37,8 @@ const routes: Routes = [
   { path: 'category/:catName', component: SingleCategoryComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'all-products/:cardId', component: ProductDetailsComponent, canActivate: [AuthGuard] },
-  { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard] },
+  { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
+   { path: 'admin-login', component: AdminLoginComponent },
 
 
   { path: '**', component: ErrorComponent }
