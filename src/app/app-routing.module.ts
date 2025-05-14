@@ -17,7 +17,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
-
+import { OrderConfirmationComponent} from './pages/order-confirmation/order-confirmation.component';
+import {BankPaymentComponent } from './bank-payment/bank-payment.component'
 
 const routes: Routes = [
   { path: '', redirectTo: 'signup', pathMatch: 'full' },
@@ -38,7 +39,10 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'all-products/:cardId', component: ProductDetailsComponent, canActivate: [AuthGuard] },
   { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
+  { path: 'order-confirmation', component: OrderConfirmationComponent},
+    { path: 'bank-payment', component: BankPaymentComponent },
    { path: 'admin-login', component: AdminLoginComponent },
+
 
 
   { path: '**', component: ErrorComponent }

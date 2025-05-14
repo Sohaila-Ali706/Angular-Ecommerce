@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="confirm-box">
+    <div class="check-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+
+    <h1 class="confirm-title">Order Confirmed!</h1>
+    <p class="confirm-message">Thank you for your purchase</p>
+
+    <div class="details-box" *ngIf="checkout">
+      <h2>Order Details</h2>
+      <div class="detail-line">
+        <span>Order Number:</span>
+        <span>#{{ randomOrderNumber }}</span>
+      </div>
+      <div class="detail-line">
+        <span>Payment Method:</span>
+        <span>{{ checkout.paymentMethod }}</span>
+      </div>
+      <div class="detail-line" *ngIf="checkout.transactionId">
+        <span>Transaction ID:</span>
+        <span>{{ checkout.transactionId }}</span>
+      </div>
+      <div class="total-line">
+        <span>Total Amount:</span>
+        <span>{{ checkout.total | number:'1.2-2' }} EGP</span>
+      </div>
+    </div>
+
+    <div class="details-box" *ngIf="checkout?.address">
+      <h2>Delivery Address</h2>
+      <p>{{ checkout.address.street }}</p>
+      <p *ngIf="checkout.address.apartment">{{ checkout.address.apartment }}</p>
+      <p>{{ checkout.address.city }}</p>
+      <p>Phone: {{ checkout.address.phone }}</p>
+    </div>
+
+    <button class="back-button" (click)="goHome()">Back to Home</button>
+  </div>
+</div>

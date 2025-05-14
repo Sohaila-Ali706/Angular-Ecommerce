@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -25,6 +26,8 @@ export class CheckoutComponent implements OnInit {
 
   validCoupons: string[] = ['sohaila', 'mohamed', 'shahinda'];
   message: { text: string, type: 'success' | 'error' | 'warning' } | null = null;
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     const storedCart = localStorage.getItem('cart');
@@ -55,20 +58,17 @@ export class CheckoutComponent implements OnInit {
   }
 
   validateForm(): boolean {
-    // التحقق من النيم
     if (this.formData.firstName.length < 3) {
       this.message = { text: 'First name must be at least 3 characters.', type: 'error' };
       return false;
     }
 
-    // التحقق من التليفون
     const phoneRegex = /^(010|011|012|015)[0-9]{8}$/;
     if (!phoneRegex.test(this.formData.phone)) {
       this.message = { text: 'Phone number must be valid (010, 011, 012, 015).', type: 'error' };
       return false;
     }
 
-    // التحقق من الجيميل
     const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
     if (!emailRegex.test(this.formData.email)) {
       this.message = { text: 'Email must be a valid Gmail address.', type: 'error' };
@@ -89,17 +89,32 @@ export class CheckoutComponent implements OnInit {
       return;
     }
 
-    // التحقق من صحة البيانات قبل إتمام الطلب
     if (!this.validateForm()) {
       return;
     }
 
-    console.log('Order placed!', {
+    const orderData = {
       items: this.cartItems,
       address: this.formData,
       payment: this.paymentMethod,
       total: this.total
-    });
+    };
+
+    console.log('Order placed!', orderData);
+
+    if (this.paymentMethod === 'cash') {
+      this.router.navigate(['/order-confirmation'], {
+        state: {
+          checkout: orderData
+        }
+      });
+    } else if (this.paymentMethod === 'bank') {
+      this.router.navigate(['/bank-payment'], {
+        state: {
+          checkout: orderData
+        }
+      });
+    }
 
     this.message = { text: 'Your order has been placed!', type: 'success' };
   }

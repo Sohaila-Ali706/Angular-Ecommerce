@@ -1,0 +1,115 @@
+.bank-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.bank-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #DB4444;
+}
+
+.instructions {
+  margin-bottom: 30px;
+  font-size: 16px;
+  color: #555;
+}
+
+.instructions ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.instructions li {
+  margin-bottom: 10px;
+}
+
+.error-message{
+  color: #c60000;
+}
+/* تنسيق النموذج */
+form.bank-form {
+  margin-bottom: 30px;
+}
+
+form.bank-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #444;
+}
+
+form.bank-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #f8f8f8;
+}
+
+form.bank-form input:focus {
+  border-color: #DB4444;
+  outline: none;
+  background-color: #fff;
+}
+
+.summary-box {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.total {
+  text-align: right;
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.confirm-btn,
+.back-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.confirm-btn {
+  background-color: #DB4444;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #c60000;
+}
+
+.back-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.back-btn:hover {
+  background-color: #aaa;
+}

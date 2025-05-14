@@ -3,14 +3,14 @@
   justify-content: space-between;
   gap: 100px;
   max-width: 900px;
-  margin: auto;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin: 60px auto;
+  flex-wrap: wrap;
+  display: flex;
 }
 
 .billing-details {
   max-width: 400px;
-  margin: auto;
+  flex: 1;
 }
 
 .billing-details h2 {
@@ -30,12 +30,13 @@
 }
 
 .billing-details input {
-  width: 80%;
+  width: 100%;
   padding: 8px;
   margin-bottom: 15px;
   border: 1px solid #ddd;
   background: #f8f8f8;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 .save-info {
@@ -50,11 +51,6 @@
   width: 18px;
   height: 18px;
   margin: 0;
-  vertical-align: middle;
-}
-
-.billing-details {
-  flex: 1;
 }
 
 .order-summary {
@@ -63,12 +59,15 @@
   padding: 20px;
   border-radius: 10px;
   margin-top: 70px;
+  min-width: 300px;
 }
+
 .item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .item img {
@@ -83,6 +82,10 @@
   font-size: 16px;
 }
 
+.totals {
+  color: #777;
+}
+
 .payment-method {
   margin: 15px 0;
 }
@@ -92,33 +95,31 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .payment-icons {
   display: flex;
   gap: 10px;
-  margin-left: 90px;
+  margin-inline-start: auto;
 }
 
 .payment-icons img {
   width: 40px;
   height: auto;
-  background-color:none;
 }
-.totals{
-  color: #777;
-}
-.ss{
-  margin-left: 280px;
-}
+
 .coupon {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .coupon input {
   flex: 1;
   padding: 10px;
+  min-width: 200px;
 }
 
 .coupon button {
@@ -128,6 +129,7 @@
   border: none;
   cursor: pointer;
 }
+
 .coupon button:hover {
   background: #fd0000;
 }
@@ -137,8 +139,9 @@
   border-radius: 5px;
   margin-bottom: 20px;
   font-size: 16px;
-  height: 5%;
-  width: 80%;
+  max-width: 600px;
+  width: 100%;
+  margin: 20px auto;
 }
 
 .success-message {
@@ -160,7 +163,7 @@
 }
 
 .place-order {
-  width: 40%;
+  width: 100%;
   background: #DB4444;
   color: white;
   padding: 12px;
@@ -175,12 +178,13 @@
 }
 
 .remove-btn {
-  background-color:#DB4444;
+  background-color: #DB4444;
   color: white;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
   font-size: 14px;
+  margin-top: 5px;
 }
 
 .remove-btn:hover {
@@ -192,18 +196,24 @@
   background-color: #f8d7da;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .checkout-container {
     flex-direction: column;
+    gap: 40px;
   }
 
+  .billing-details,
   .order-summary {
+    max-width: 100%;
     margin-top: 20px;
   }
-}
 
-@media (max-width: 768px) {
-  .billing-details {
-    max-width: 100%;
+  .payment-icons {
+    margin-inline-start: 0;
+  }
+
+  .place-order {
+    width: 100%;
   }
 }

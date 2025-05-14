@@ -1,0 +1,47 @@
+<div class="bank-container" *ngIf="checkoutData">
+  <h2>Bank Payment Instructions</h2>
+
+  <div class="instructions">
+    <p>Please enter your bank details and transfer the total amount:</p>
+
+    <form #bankForm="ngForm" (ngSubmit)="confirmPayment(bankForm)">
+      <label>Bank Name*</label>
+      <input type="text"
+             name="bankName"
+             [(ngModel)]="bankData.bankName"
+             required
+             #bankName="ngModel"
+             [ngClass]="{ 'invalid': bankName.invalid && bankName.touched }" />
+      <div *ngIf="bankName.invalid && bankName.touched" class="error-message">
+        Bank name is required.
+      </div>
+
+      <label>Account Number*</label>
+      <input type="text"
+             name="accountNumber"
+             [(ngModel)]="bankData.accountNumber"
+             required
+             minlength="10"
+             #accountNumber="ngModel"
+             [ngClass]="{ 'invalid': accountNumber.invalid && accountNumber.touched }" />
+      <div *ngIf="accountNumber.invalid && accountNumber.touched" class="error-message">
+        Account number is required and must be at least 10 digits.
+      </div>
+
+      <p><strong>Total Amount:</strong> {{ checkoutData.total.toFixed(2) }} EGP</p>
+
+      <button class="confirm-btn" type="submit" [disabled]="!bankForm.valid">Confirm Payment</button>
+      <button class="back-btn" type="button" (click)="goBack()">Back to Checkout</button>
+    </form>
+  </div>
+
+  <div class="summary-box">
+    <h3>Order Summary</h3>
+    <div *ngFor="let item of checkoutData.items" class="summary-item">
+      <span>{{ item.name }}</span>
+      <span>{{ item.quantity }} × {{ item.price.toFixed(2) }} EGP</span>
+    </div>
+    <hr>
+    <p class="total">Total: <strong>{{ checkoutData.total.toFixed(2) }} EGP</strong></p>
+  </div>
+</div>

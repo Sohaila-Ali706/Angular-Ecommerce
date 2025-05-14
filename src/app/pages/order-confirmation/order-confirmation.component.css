@@ -1,0 +1,85 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.confirm-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.check-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #d1fae5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem auto;
+}
+
+.check-icon svg {
+  width: 40px;
+  height: 40px;
+  color: #10b981;
+}
+
+.confirm-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.confirm-message {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.details-box {
+  background-color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.details-box h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.detail-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+}
+
+.total-line {
+  border-top: 1px solid #ccc;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.back-button {
+  margin-top: 1rem;
+  background-color: #f59e0b;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.back-button:hover {
+  background-color: #d97706;
+}

@@ -35,6 +35,8 @@ import { LoadingComponent } from './loading/loading.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { OrderConfirmationComponent } from './pages/order-confirmation/order-confirmation.component';
+import { BankPaymentComponent } from './bank-payment/bank-payment.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     LoadingComponent,
     AdminDashboardComponent,
     AdminLoginComponent,
+    OrderConfirmationComponent,
+    BankPaymentComponent,
   ],
   imports: [
     BrowserModule,
