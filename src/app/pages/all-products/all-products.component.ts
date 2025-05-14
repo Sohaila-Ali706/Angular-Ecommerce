@@ -21,25 +21,26 @@ export class AllProductsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // تحميل المنتجات من الـ API
-    this.global.getPosts().subscribe((res) => {
-      this.products = res.products;
-      console.log('all products:', res);
-    });
+   
+  this.global.getPosts().subscribe((res) => {
+    this.products = res.products;
 
-    // تحكم في الـ setTimeout (لوجيك الـ loading)
-    setTimeout(() => {
-      this.isLoading = false; 
-    }, 800);  // بعد ثانية واحدة، اختفاء الـ loading
+    // ناخد الكاتيجوري من الـ query params
+    const categoryFromQuery = this.route.snapshot.queryParamMap.get('category');
 
-    // التعامل مع query params من الرابط
-    this.route.queryParams.subscribe((params) => {
-      const categoryFromQuery = params['category'];
-      if (categoryFromQuery) {
-        // يمكن هنا تضيف فلترة حسب الـ category إذا لزم الأمر
-      }
-      // هذا السطر يمكن تفعيله حسب الحاجة
-      // this.applyFilter();
-    });
+    // فلترة حسب الكاتيجوري لو موجودة
+    if (categoryFromQuery) {
+      this.filteredProducts = this.products.filter(
+        (p) => p.category === categoryFromQuery
+      );
+    } else {
+      this.filteredProducts = this.products;
+    }
+
+    // إلغاء اللودينج
+    this.isLoading = false;
+  });
+
+
   }
 }
