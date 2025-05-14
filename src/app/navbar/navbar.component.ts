@@ -38,6 +38,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.wishlistCountSubscription = this.wishlistService.getWishlistCountObservable().subscribe(count => {
       this.wishlistCount = count;
     });
+    
   }
 
   ngOnDestroy() {
@@ -53,4 +54,5 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.authService.logout();            // ✅ حذف التوكن
     this.router.navigate(['/login']);     // ✅ توجيه المستخدم
   }
+  
 }

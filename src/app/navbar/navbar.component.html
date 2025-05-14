@@ -35,7 +35,7 @@
           <a class="nav-link" routerLink="/admin-dashboard">DashBoard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="logout()" > LOG OUT</a>
+          <a class="nav-link" (click)="logout()"> LOG OUT</a>
         </li>
       </ul>
 
@@ -76,7 +76,10 @@
                 filterUnits="userSpaceOnUse"
                 color-interpolation-filters="sRGB"
               >
-                <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                <feFlood
+                  flood-opacity="0"
+                  result="BackgroundImageFix"
+                ></feFlood>
                 <feColorMatrix
                   in="SourceAlpha"
                   type="matrix"
@@ -115,16 +118,30 @@
         </button>
       </div>
 
-      <!-- Wishlist Icon with count -->
-      <a routerLink="/wishlist">
-        <i class="fa-regular fa-heart"></i>
-        <span class="badge" *ngIf="wishlistCount > 0">{{ wishlistCount }}</span>
-      </a>
+      <!-- Wishlist Icon with count (Adjusted position) -->
+      <div class="position-relative me-3">
+        <a routerLink="/wishlist">
+          <i class="fa-regular fa-heart fa-lg"></i>
+          <span
+            *ngIf="wishlistCount > 0"
+            class="position-absolute top-0 start-100 badge rounded-pill bg-danger"
+            style="transform: translate(-140%, -40%); font-size: 0.6rem"
+          >
+            {{ wishlistCount }}
+          </span>
+        </a>
+      </div>
 
       <!-- Cart Icon with count -->
-      <a routerLink="/cart">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span class="badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+      <a routerLink="/cart" class="position-relative">
+        <i class="fa-solid fa-cart-shopping fa-lg position-relative"></i>
+        <span
+          *ngIf="cartCount > 0"
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          style="font-size: 0.6rem"
+        >
+          {{ cartCount }}
+        </span>
       </a>
     </div>
   </div>

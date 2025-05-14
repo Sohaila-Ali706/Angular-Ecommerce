@@ -59,8 +59,7 @@ export class WishlistService {
   }
 
 getWishlistCountObservable() {
-  return new BehaviorSubject<number>(this.wishlist.length).asObservable();
-}
+return this.wishlistCountSubject.asObservable();}
 
   getWishlistCount(): number {
     return this.wishlist.length;
